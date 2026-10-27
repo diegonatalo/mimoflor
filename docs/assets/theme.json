@@ -1,0 +1,9 @@
+{
+  "bg": "#07070d", "card": "#0d0d16", "border": "#1b1b29", "borderStrong": "#2a2a3d",
+  "fg": "#f5f5f4", "muted": "#b3b3be", "subtle": "#8b8b9a",
+  "accent": "#fb7185", "accent2": "#7db4ff", "onAccent": "#1a0309",
+  "fontSans": "'Cormorant Garamond',Georgia,'Times New Roman',serif",
+  "fontMono": "'Cascadia Code',Menlo,Consolas,monospace",
+  "radiusScale": 1.0,
+  "glow": true, "grid": true, "animations": true
+}

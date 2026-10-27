@@ -1,0 +1,44 @@
+{
+  "repo": "rose",
+  "name": "Mimoflor",
+  "tagline": "Uma flor para alegrar o dia de alguém.",
+  "demoUrl": "https://mimoflor.vercel.app",
+  "codeUrl": "https://github.com/diegonatalo/rose",
+  "year": 2026,
+  "author": "Diego Natalo",
+  "licenseLine": "Licença MIT",
+  "bannerShot": {"file": "public/og-image.jpg", "title": "mimoflor.vercel.app"},
+  "bannerChips": ["React 19", "TypeScript", "Vite", "Tailwind CSS 4"],
+  "sections": [
+    {"id": "sobre", "label": "SOBRE", "title": "Sobre o projeto"},
+    {"id": "demo", "label": "DEMO", "title": "Telas"},
+    {"id": "funcionalidades", "label": "FUNCIONALIDADES", "title": "O que dá para fazer"},
+    {"id": "stack", "label": "STACK", "title": "Stack"},
+    {"id": "comorodar", "label": "COMO RODAR", "title": "Rodando localmente"},
+    {"id": "estrutura", "label": "ESTRUTURA", "title": "Estrutura"},
+    {"id": "mais", "label": "MAIS", "title": "Mais informações"},
+    {"id": "autor", "label": "AUTOR", "title": "Autor"}
+  ],
+  "features": [
+    ["Escolher a flor", "Rosa, girassol, hortênsia ou lírio. A hortênsia abre por padrão."],
+    ["Personalizar a rosa", "Escolha o tipo (nacional, vista de cima, ou colombiana, de taça alta) e a cor (vermelha ou azul)."],
+    ["Ver a flor nascer", "O caule brota, as folhas se desenrolam e as pétalas se abrem uma a uma. Depois ela balança e brilha."],
+    ["Clima que acompanha a flor", "O fundo, o brilho e a poeira de luz mudam de cor com a flor escolhida."],
+    ["Compartilhar por link", "A flor fica no endereço (?flor=rosa&tipo=colombiana&cor=azul). Quem abre o link vê a mesma flor."],
+    ["Usar no celular", "A flor se ajusta à largura e à altura da tela, e a animação é leve em aparelhos simples."],
+    ["Navegar pelo teclado", "O seletor funciona com teclado e a animação é encurtada para quem prefere menos movimento."],
+    ["Página 404 própria", "Endereços e flores que não existem levam a um broto que ainda não floresceu."]
+  ],
+  "shots": [
+    {"file": "public/og/rose.jpg", "title": "mimoflor.vercel.app/?flor=rosa", "alt": "Rosa nacional vermelha, vista de cima, sobre fundo rosado"},
+    {"file": "public/og/colombian-blue.jpg", "title": "mimoflor.vercel.app/?flor=rosa&tipo=colombiana&cor=azul", "alt": "Rosa colombiana azul, em taça alta e fechada"},
+    {"file": "public/og/sunflower.jpg", "title": "mimoflor.vercel.app/?flor=girassol", "alt": "Girassol amarelo sobre fundo dourado"},
+    {"file": "public/og/lily.jpg", "title": "mimoflor.vercel.app/?flor=lirio", "alt": "Lírio branco sobre fundo claro"}
+  ],
+  "stack": ["React 19", "TypeScript 6", "Vite 8", "Tailwind CSS 4", "ESLint 10", "React Compiler", "pnpm"],
+  "authorLinks": [
+    ["Portfólio", "https://diegonatalo.dev"],
+    ["LinkedIn", "https://www.linkedin.com/in/diegonatalo/"],
+    ["GitHub", "https://github.com/diegonatalo"]
+  ]
+}
