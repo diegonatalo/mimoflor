@@ -1,9 +1,9 @@
 ### 🌐 Deploy
 
-Publicado na [Vercel](https://vercel.com). O `vercel.json` manda todos os caminhos para o `index.html` (SPA fallback), e assim a 404 do site aparece no lugar da padrão da Vercel.
+Publicado na [Vercel](https://vercel.com). Não há configuração extra: a Vercel detecta o Next.js. Uma flor inexistente na URL (ou qualquer outro caminho) devolve a 404 do próprio site, com status 404 de verdade.
 
 > [!NOTE]
-> As URLs das meta tags Open Graph, em `index.html`, são absolutas. Se o domínio mudar, atualize-as.
+> As URLs das meta tags Open Graph (`metadataBase` em `src/app/layout.tsx`) são absolutas. Se o domínio mudar, atualize-as.
 
 Ícones e imagens ficam em `public/`:
 

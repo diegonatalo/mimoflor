@@ -1,13 +1,14 @@
 ```text
 src/
-├── App.tsx                  "/" abre a home, qualquer outro caminho abre a 404
-├── index.css                temas por flor, fundo, tipografia e seletor
+├── app/
+│   ├── layout.tsx           metadados, Open Graph, ícones e fontes
+│   ├── page.tsx             "/" lê a flor da URL e abre a home (flor inexistente cai na 404)
+│   ├── not-found.tsx        página 404
+│   └── globals.css          temas por flor, fundo, tipografia e seletor
 ├── lib/
 │   └── flower-url.ts        lê e escreve a flor escolhida na URL
-├── pages/
-│   ├── home.tsx             flor, frase e seletor
-│   └── not-found.tsx        página 404
 └── components/
+    ├── home.tsx             flor, frase e seletor
     ├── flower.tsx           monta o SVG da flor escolhida
     ├── flower.css           linha do tempo e keyframes da animação
     ├── flower-picker.tsx    seletor de flores

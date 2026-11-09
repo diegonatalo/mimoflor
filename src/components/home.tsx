@@ -1,17 +1,19 @@
-import { useEffect, useRef, useState } from "react";
-import { Flower } from "../components/flower";
-import { FlowerOptions } from "../components/flower-options";
-import { FlowerPicker } from "../components/flower-picker";
+"use client";
+
+import { useRef, useState, useSyncExternalStore } from "react";
+import { Flower } from "./flower";
+import { FlowerOptions } from "./flower-options";
+import { FlowerPicker } from "./flower-picker";
 import {
   FLOWERS,
   defaultSelection,
   type FlowerType,
   type Selection,
-} from "../components/flowers/registry";
-import { Footer } from "../components/footer";
-import { readFlowerUrl, writeFlowerUrl } from "../lib/flower-url";
-import { RomanticMessage } from "../components/message";
-import { Stage } from "../components/stage";
+} from "./flowers/registry";
+import { Footer } from "./footer";
+import { writeFlowerUrl, type FlowerUrl } from "../lib/flower-url";
+import { RomanticMessage } from "./message";
+import { Stage } from "./stage";
 
 /* a flor ocupa o que sobra depois da frase, do seletor, das opções e do rodapé */
 const getSize = () => {
@@ -19,22 +21,21 @@ const getSize = () => {
   return Math.min(380, window.innerWidth - 32, (heightBudget * 320) / 380);
 };
 
-const useFlowerSize = () => {
-  const [size, setSize] = useState(getSize);
-
-  useEffect(() => {
-    const onResize = () => setSize(getSize());
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  return size;
+const subscribeToResize = (onChange: () => void) => {
+  window.addEventListener("resize", onChange);
+  return () => window.removeEventListener("resize", onChange);
 };
+
+/* no servidor não há janela: usa o tamanho máximo e o navegador ajusta ao hidratar */
+const SERVER_SIZE = 380;
+
+const useFlowerSize = () =>
+  useSyncExternalStore(subscribeToResize, getSize, () => SERVER_SIZE);
 
 const DEFAULT_FLOWER: FlowerType = "hydrangea";
 
 /** Estado inicial: a flor da URL (se houver) por cima dos padrões. */
-const initialState = () => {
+const initialState = (fromUrl: FlowerUrl) => {
   const selections = Object.fromEntries(
     (Object.keys(FLOWERS) as FlowerType[]).map((type) => [
       type,
@@ -42,15 +43,14 @@ const initialState = () => {
     ]),
   ) as Record<FlowerType, Selection>;
 
-  const fromUrl = readFlowerUrl(window.location.search);
   if (fromUrl.status !== "flower") return { flower: DEFAULT_FLOWER, selections };
 
   selections[fromUrl.flower] = fromUrl.selection;
   return { flower: fromUrl.flower, selections };
 };
 
-export default function Home() {
-  const [initial] = useState(initialState);
+export default function Home({ url }: { url: FlowerUrl }) {
+  const [initial] = useState(() => initialState(url));
   const [flower, setFlower] = useState<FlowerType>(initial.flower);
   const [selections, setSelections] = useState(initial.selections);
   /* sempre a última escolha, mesmo entre dois toques antes de redesenhar */

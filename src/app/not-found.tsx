@@ -1,9 +1,14 @@
-import { useEffect } from "react";
-import { Footer } from "../components/footer";
-import { CommonDefs, Ground, Leaf, Stem } from "../components/flowers/shared";
-import { vars } from "../components/flowers/utils";
-import { Stage } from "../components/stage";
-import "../components/flower.css";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Footer } from "@/components/footer";
+import { CommonDefs, Ground, Leaf, Stem } from "@/components/flowers/shared";
+import { vars } from "@/components/flowers/utils";
+import { Stage } from "@/components/stage";
+import "@/components/flower.css";
+
+export const metadata: Metadata = {
+  title: "Página não encontrada · Mimoflor",
+};
 
 /** Um broto que ainda não floresceu, com o botão pendendo para o lado. */
 const Sprout = () => (
@@ -56,14 +61,6 @@ const Sprout = () => (
 );
 
 export default function NotFound() {
-  useEffect(() => {
-    const previous = document.title;
-    document.title = "Página não encontrada · Mimoflor";
-    return () => {
-      document.title = previous;
-    };
-  }, []);
-
   return (
     <Stage theme="lost">
       <Sprout />
@@ -83,9 +80,9 @@ export default function NotFound() {
         </p>
       </div>
 
-      <a href="/" className="fade-in pill-link">
+      <Link href="/" className="fade-in pill-link">
         Voltar ao jardim
-      </a>
+      </Link>
 
       <Footer />
     </Stage>

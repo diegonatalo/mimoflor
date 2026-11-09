@@ -9,7 +9,7 @@ const DUST = Array.from({ length: 16 }, (_, i) => ({
 }));
 
 type StageProps = {
-  /** nome do tema de cores (ver `.stage[data-flower]` em index.css) */
+  /** nome do tema de cores (ver `.stage[data-flower]` em globals.css) */
   theme: string;
   children: ReactNode;
 };
