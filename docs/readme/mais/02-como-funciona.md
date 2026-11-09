@@ -9,4 +9,4 @@
 | **Opções da rosa** | Na abertura da página, entram só depois do seletor de flores. Em trocas seguintes, aparecem na hora. |
 | **Animação** | Só CSS, sem biblioteca. As flores são SVG desenhado em código. |
 
-A lógica da URL fica em `src/lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.
+A lógica da URL fica em `lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.

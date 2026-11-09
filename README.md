@@ -90,7 +90,7 @@ Escolha uma flor, veja ela nascer em animação e compartilhe um link bonito, le
 
 <div align="center">
 
-<img src="docs/assets/stack.svg" alt="Stack: Next.js 16, React 19, TypeScript 6, Tailwind CSS 4, ESLint 9, React Compiler, pnpm" width="100%" />
+<img src="docs/assets/stack.svg" alt="Stack: Next.js 16, React 19, TypeScript 6, Tailwind CSS 4, ESLint 9, pnpm" width="100%" />
 
 </div>
 
@@ -127,7 +127,6 @@ pnpm dev        # http://localhost:3000
 </div>
 
 ```text
-src/
 ├── app/
 │   ├── layout.tsx           metadados, Open Graph, ícones e fontes
 │   ├── page.tsx             "/" lê a flor da URL e abre a home (flor inexistente cai na 404)
@@ -135,7 +134,7 @@ src/
 │   └── globals.css          temas por flor, fundo, tipografia e seletor
 ├── lib/
 │   └── flower-url.ts        lê e escreve a flor escolhida na URL
-└── components/
+├── components/
     ├── home.tsx             flor, frase e seletor
     ├── flower.tsx           monta o SVG da flor escolhida
     ├── flower.css           linha do tempo e keyframes da animação
@@ -161,9 +160,9 @@ src/
 
 ### 🧩 Como adicionar uma nova flor
 
-1. Crie `src/components/flowers/minha-flor.tsx` exportando um componente de gradientes (`MinhaFlorDefs`) e um da planta (`MinhaFlorPlant`). Use `Stem`, `Leaf` e `Petal` de `shared.tsx`.
+1. Crie `components/flowers/minha-flor.tsx` exportando um componente de gradientes (`MinhaFlorDefs`) e um da planta (`MinhaFlorPlant`). Use `Stem`, `Leaf` e `Petal` de `shared.tsx`.
 2. Registre a flor em `flowers/registry.tsx`: nome, `slug` da URL, cor da bolinha no seletor e uma função `view` que devolve o desenho, o tema, a cor dos brilhos, a posição da cabeça e o segundo em que ela começa a abrir.
-3. Crie o tema de cores em `src/app/globals.css`, no bloco `.stage[data-flower="..."]`.
+3. Crie o tema de cores em `app/globals.css`, no bloco `.stage[data-flower="..."]`.
 4. Para dar variações (como tipo e cor da rosa), declare `options` no registro. O seletor desenha a fileira de opções sozinho, e `view` recebe a escolha feita.
 
 ### 🧠 Como funciona
@@ -177,14 +176,14 @@ src/
 | **Opções da rosa** | Na abertura da página, entram só depois do seletor de flores. Em trocas seguintes, aparecem na hora. |
 | **Animação** | Só CSS, sem biblioteca. As flores são SVG desenhado em código. |
 
-A lógica da URL fica em `src/lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.
+A lógica da URL fica em `lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.
 
 ### 🌐 Deploy
 
 Publicado na [Vercel](https://vercel.com). Não há configuração extra: a Vercel detecta o Next.js. Uma flor inexistente na URL (ou qualquer outro caminho) devolve a 404 do próprio site, com status 404 de verdade.
 
 > [!NOTE]
-> As URLs das meta tags Open Graph (`metadataBase` em `src/app/layout.tsx`) são absolutas. Se o domínio mudar, atualize-as.
+> As URLs das meta tags Open Graph (`metadataBase` em `app/layout.tsx`) são absolutas. Se o domínio mudar, atualize-as.
 
 Ícones e imagens ficam em `public/`:
 

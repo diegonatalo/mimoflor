@@ -1,5 +1,4 @@
 ```text
-src/
 ├── app/
 │   ├── layout.tsx           metadados, Open Graph, ícones e fontes
 │   ├── page.tsx             "/" lê a flor da URL e abre a home (flor inexistente cai na 404)
@@ -7,7 +6,7 @@ src/
 │   └── globals.css          temas por flor, fundo, tipografia e seletor
 ├── lib/
 │   └── flower-url.ts        lê e escreve a flor escolhida na URL
-└── components/
+├── components/
     ├── home.tsx             flor, frase e seletor
     ├── flower.tsx           monta o SVG da flor escolhida
     ├── flower.css           linha do tempo e keyframes da animação
