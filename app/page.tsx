@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import Home from "@/components/home";
+import { Home } from "@/components/home";
 import { readFlowerUrl } from "@/lib/flower-url";
 
 // A flor vem da query string, então a página é gerada a cada visita (não há versão estática).

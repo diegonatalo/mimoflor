@@ -12,7 +12,7 @@ type FlowerProps = {
 
 const VIEW_BOX = "0 0 320 380";
 
-export function Flower({ type = "rose", selection = {}, size = 380 }: FlowerProps) {
+export const Flower = ({ type = "rose", selection = {}, size = 380 }: FlowerProps) => {
   const flower = FLOWERS[type].view(selection);
   const height = (size * 380) / 320;
 
@@ -65,4 +65,4 @@ export function Flower({ type = "rose", selection = {}, size = 380 }: FlowerProp
       </svg>
     </div>
   );
-}
+};

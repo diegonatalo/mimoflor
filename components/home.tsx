@@ -49,7 +49,7 @@ const initialState = (fromUrl: FlowerUrl) => {
   return { flower: fromUrl.flower, selections };
 };
 
-export default function Home({ url }: { url: FlowerUrl }) {
+export const Home = ({ url }: { url: FlowerUrl }) => {
   const [initial] = useState(() => initialState(url));
   const [flower, setFlower] = useState<FlowerType>(initial.flower);
   const [selections, setSelections] = useState(initial.selections);
@@ -102,4 +102,4 @@ export default function Home({ url }: { url: FlowerUrl }) {
       <Footer />
     </Stage>
   );
-}
+};
