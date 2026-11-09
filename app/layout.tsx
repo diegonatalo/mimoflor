@@ -2,15 +2,15 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site";
 
-const TITULO = "Mimoflor · Uma flor para você";
-const DESCRICAO =
+const TITLE = "Mimoflor · Uma flor para você";
+const DESCRIPTION =
   "Escolha uma flor — rosa (nacional ou colombiana, vermelha ou azul), girassol, hortênsia ou lírio — e veja ela nascer.";
-const IMAGEM = "/og-image.jpg";
+const IMAGE = "/og-image.jpg";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: TITULO,
-  description: DESCRICAO,
+  title: TITLE,
+  description: DESCRIPTION,
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     siteName: "Mimoflor",
     locale: "pt_BR",
     url: "/",
-    title: TITULO,
-    description: DESCRICAO,
+    title: TITLE,
+    description: DESCRIPTION,
     images: [
       {
-        url: IMAGEM,
+        url: IMAGE,
         type: "image/jpeg",
         width: 1200,
         height: 630,
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: TITULO,
-    description: DESCRICAO,
-    images: [IMAGEM],
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [IMAGE],
   },
 };
 
