@@ -11,7 +11,7 @@ import {
   type Selection,
 } from "./flowers/registry";
 import { Footer } from "./footer";
-import { writeFlowerUrl, type FlowerUrl } from "../lib/flower-url";
+import { writeFlowerUrl, type FlowerUrl } from "@/lib/flower-url";
 import { RomanticMessage } from "./message";
 import { Stage } from "./stage";
 

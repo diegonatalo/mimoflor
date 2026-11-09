@@ -3,7 +3,7 @@ import {
   defaultSelection,
   type FlowerType,
   type Selection,
-} from "../components/flowers/registry";
+} from "@/components/flowers/registry";
 
 const FLOWER_PARAM = "flor";
 
