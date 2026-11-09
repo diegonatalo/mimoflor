@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Mimoflor",
     locale: "pt_BR",
-    url: "/",
     title: TITLE,
     description: DESCRIPTION,
     images: [
