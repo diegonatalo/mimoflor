@@ -1,16 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { SITE_URL } from "@/lib/site";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const TITLE = "Mimoflor · Uma flor para você";
-const DESCRIPTION =
-  "Escolha uma flor — rosa (nacional ou colombiana, vermelha ou azul), girassol, hortênsia ou lírio — e veja ela nascer.";
 const IMAGE = "/og-image.jpg";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
-  description: DESCRIPTION,
+  description: SITE_DESCRIPTION,
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -20,10 +18,10 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "Mimoflor",
+    siteName: SITE_NAME,
     locale: "pt_BR",
     title: TITLE,
-    description: DESCRIPTION,
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: IMAGE,
@@ -37,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: TITLE,
-    description: DESCRIPTION,
+    description: SITE_DESCRIPTION,
     images: [IMAGE],
   },
 };
