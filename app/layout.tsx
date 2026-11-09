@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const TITULO = "Mimoflor · Uma flor para você";
 const DESCRICAO =
@@ -7,7 +8,7 @@ const DESCRICAO =
 const IMAGEM = "/og-image.jpg";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mimoflor.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: TITULO,
   description: DESCRICAO,
   icons: {
