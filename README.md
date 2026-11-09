@@ -1,12 +1,12 @@
 <!-- Arquivo gerado pelo readme-kit. Não edite aqui: altere docs/readme/ e rode "readme-kit build". -->
 <div align="center">
 
-<img src="docs/assets/banner.svg" alt="Mimoflor: Uma flor para alegrar o dia de alguém. github.com/diegonatalo/rose. Stack: Next.js 16, React 19, TypeScript 6, Tailwind CSS 4" width="100%" />
+<img src="docs/assets/banner.svg" alt="Mimoflor: Uma flor para alegrar o dia de alguém. github.com/diegonatalo/mimoflor. Stack: Next.js 16, React 19, TypeScript 6, Tailwind CSS 4" width="100%" />
 
 <br />
 
 <a href="https://mimoflor.vercel.app"><img src="docs/assets/btn-demo.svg" alt="Abrir o app ↗" height="46" /></a>
-<a href="https://github.com/diegonatalo/rose"><img src="docs/assets/btn-code.svg" alt="Código ↗" height="46" /></a>
+<a href="https://github.com/diegonatalo/mimoflor"><img src="docs/assets/btn-code.svg" alt="Código ↗" height="46" /></a>
 
 <br />
 
@@ -105,8 +105,8 @@ Escolha uma flor, veja ela nascer em animação e compartilhe um link bonito, le
 Requer [Node.js](https://nodejs.org) e [pnpm](https://pnpm.io).
 
 ```bash
-git clone https://github.com/diegonatalo/rose.git
-cd rose
+git clone https://github.com/diegonatalo/mimoflor.git
+cd mimoflor
 pnpm install
 pnpm dev        # http://localhost:3000
 ```

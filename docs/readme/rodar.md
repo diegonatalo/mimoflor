@@ -1,8 +1,8 @@
 Requer [Node.js](https://nodejs.org) e [pnpm](https://pnpm.io).
 
 ```bash
-git clone https://github.com/diegonatalo/rose.git
-cd rose
+git clone https://github.com/diegonatalo/mimoflor.git
+cd mimoflor
 pnpm install
 pnpm dev        # http://localhost:3000
 ```
