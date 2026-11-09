@@ -1,6 +1,16 @@
 import type { Metadata, Viewport } from "next";
+import { Allura, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+
+const allura = Allura({ subsets: ["latin"], weight: "400", variable: "--nf-allura", display: "swap" });
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--nf-cormorant",
+  display: "swap",
+});
 
 const TITLE = "Mimoflor · Uma flor para você";
 const IMAGE = "/og-image.jpg";
@@ -48,20 +58,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="pt-BR" className={`${allura.variable} ${cormorant.variable}`}>
       <body>{children}</body>
     </html>
   );

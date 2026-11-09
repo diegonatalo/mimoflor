@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-allura: "Allura", cursive;
-  --font-serif-soft: "Cormorant Garamond", Georgia, serif;
+  --font-allura: var(--nf-allura), cursive;
+  --font-serif-soft: var(--nf-cormorant), Georgia, serif;
 }
 
 /* Cores registradas para o tema poder fazer transição suave entre flores */
