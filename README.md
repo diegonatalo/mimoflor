@@ -118,6 +118,16 @@ pnpm dev        # http://localhost:3000
 | `pnpm start` | Serve o build de produção |
 | `pnpm lint` | Roda o ESLint |
 
+### 🧪 Testes
+
+```bash
+pnpm test
+```
+
+Usa [Vitest](https://vitest.dev). Por enquanto os testes cobrem só a leitura e a escrita da flor na URL (`lib/flower-url.ts`).
+
+Para reexecutar ao salvar: `pnpm test:watch`.
+
 <br />
 
 <div align="center">
@@ -199,7 +209,7 @@ Publicado na [Vercel](https://vercel.com). Não há configuração extra: a Verc
 - [ ] Mensagens personalizadas
 - [ ] Mais flores (tulipa, margarida, orquídea)
 - [ ] Mensagens para datas especiais, como aniversários
-- [ ] Testes automatizados e CI (hoje só há `tsc` e ESLint)
+- [ ] CI e mais testes (hoje só a leitura da URL da flor tem testes, além de `tsc` e ESLint)
 
 ### 📄 Créditos e licença
 

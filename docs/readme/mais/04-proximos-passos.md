@@ -4,4 +4,4 @@
 - [ ] Mensagens personalizadas
 - [ ] Mais flores (tulipa, margarida, orquídea)
 - [ ] Mensagens para datas especiais, como aniversários
-- [ ] Testes automatizados e CI (hoje só há `tsc` e ESLint)
+- [ ] CI e mais testes (hoje só a leitura da URL da flor tem testes, além de `tsc` e ESLint)
