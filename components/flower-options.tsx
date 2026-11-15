@@ -2,7 +2,7 @@ import { useState, type CSSProperties } from "react";
 import type { OptionGroup, Selection } from "./flowers/registry";
 
 /* Momento (em segundos desde que a página abriu) em que o seletor de flores
-   termina de aparecer, ver `.fade-in` em index.css. As opções entram logo
+   termina de aparecer, ver `.fade-in` em app/globals.css. As opções entram logo
    depois dele. */
 const PICKER_VISIBLE_AT = 5.2;
 
