@@ -40,8 +40,8 @@ export const readFlowerUrl = (search: string): FlowerUrl => {
   return { status: "flower", flower, selection };
 };
 
-/** Escreve a flor e as opções escolhidas na URL, sem criar entrada no histórico. */
-export const writeFlowerUrl = (flower: FlowerType, selection: Selection) => {
+/** Monta a busca da URL (ex.: `?flor=rosa&tipo=colombiana&cor=azul`) para a flor e as opções escolhidas. */
+export const flowerSearch = (flower: FlowerType, selection: Selection): string => {
   const params = new URLSearchParams({ [FLOWER_PARAM]: FLOWERS[flower].slug });
 
   for (const group of FLOWERS[flower].options ?? []) {
@@ -49,9 +49,5 @@ export const writeFlowerUrl = (flower: FlowerType, selection: Selection) => {
     if (choice) params.set(group.param, choice.slug);
   }
 
-  window.history.replaceState(
-    null,
-    "",
-    `${window.location.pathname}?${params.toString()}`,
-  );
+  return `?${params.toString()}`;
 };

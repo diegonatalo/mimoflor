@@ -1,5 +1,5 @@
-import { afterEach, describe, expect, it } from "vitest";
-import { readFlowerUrl, writeFlowerUrl } from "@/lib/flower-url";
+import { describe, expect, it } from "vitest";
+import { flowerSearch, readFlowerUrl } from "@/lib/flower-url";
 
 describe("readFlowerUrl", () => {
   it("abre a flor padrão quando não há `flor` na URL", () => {
@@ -47,24 +47,17 @@ describe("readFlowerUrl", () => {
   });
 });
 
-describe("writeFlowerUrl", () => {
-  afterEach(() => window.history.replaceState(null, "", "/"));
-
-  it("escreve flor e opções na URL sem criar entrada no histórico", () => {
-    const before = window.history.length;
-    writeFlowerUrl("rose", { kind: "colombian", color: "blue" });
-    expect(window.location.search).toBe("?flor=rosa&tipo=colombiana&cor=azul");
-    expect(window.history.length).toBe(before);
+describe("flowerSearch", () => {
+  it("monta flor e opções", () => {
+    expect(flowerSearch("rose", { kind: "colombian", color: "blue" })).toBe("?flor=rosa&tipo=colombiana&cor=azul");
   });
 
-  it("escreve só a flor quando ela não tem opções", () => {
-    writeFlowerUrl("sunflower", {});
-    expect(window.location.search).toBe("?flor=girassol");
+  it("só a flor quando ela não tem opções", () => {
+    expect(flowerSearch("sunflower", {})).toBe("?flor=girassol");
   });
 
-  it("gera uma URL que readFlowerUrl lê de volta", () => {
-    writeFlowerUrl("rose", { kind: "national", color: "blue" });
-    expect(readFlowerUrl(window.location.search)).toMatchObject({
+  it("gera uma busca que readFlowerUrl lê de volta", () => {
+    expect(readFlowerUrl(flowerSearch("rose", { kind: "national", color: "blue" }))).toMatchObject({
       flower: "rose",
       selection: { kind: "national", color: "blue" },
     });

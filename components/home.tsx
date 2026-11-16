@@ -11,7 +11,8 @@ import {
   type Selection,
 } from "./flowers/registry";
 import { Footer } from "./footer";
-import { writeFlowerUrl, type FlowerUrl } from "@/lib/flower-url";
+import { useFlowerUrl } from "@/hooks/use-flower-url";
+import type { FlowerUrl } from "@/lib/flower-url";
 import { RomanticMessage } from "./message";
 import { Stage } from "./stage";
 
@@ -56,6 +57,7 @@ export const Home = ({ url }: { url: FlowerUrl }) => {
   /* sempre a última escolha, mesmo entre dois toques antes de redesenhar */
   const latest = useRef(initial.selections);
   const size = useFlowerSize();
+  const writeFlowerUrl = useFlowerUrl();
 
   const selection = selections[flower];
   const groups = FLOWERS[flower].options;

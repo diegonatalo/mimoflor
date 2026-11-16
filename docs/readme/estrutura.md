@@ -5,7 +5,9 @@
 │   ├── not-found.tsx        página 404
 │   └── globals.css          temas por flor, fundo, tipografia e seletor
 ├── lib/
-│   └── flower-url.ts        lê e escreve a flor escolhida na URL
+│   └── flower-url.ts        lê a flor da URL e monta a URL da flor escolhida
+├── hooks/
+│   └── use-flower-url.ts    grava a flor escolhida na URL, sem criar entrada no histórico
 ├── components/
     ├── home.tsx             flor, frase e seletor
     ├── flower.tsx           monta o SVG da flor escolhida
