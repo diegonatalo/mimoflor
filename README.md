@@ -124,9 +124,9 @@ pnpm dev        # http://localhost:3000
 pnpm test
 ```
 
-Usa [Vitest](https://vitest.dev). Por enquanto os testes cobrem só a leitura e a escrita da flor na URL (`lib/flower-url.ts`).
+Usa [Vitest](https://vitest.dev). Os testes cobrem a leitura e a montagem da URL da flor (`lib/flower-url.ts`), a gravação dela no histórico (`hooks/use-flower-url.ts`) e a escolha de flores e opções na home.
 
-Para reexecutar ao salvar: `pnpm test:watch`.
+Para reexecutar ao salvar: `pnpm test:watch`. Para ver a cobertura: `pnpm test:coverage`.
 
 <br />
 
@@ -143,7 +143,9 @@ Para reexecutar ao salvar: `pnpm test:watch`.
 │   ├── not-found.tsx        página 404
 │   └── globals.css          temas por flor, fundo, tipografia e seletor
 ├── lib/
-│   └── flower-url.ts        lê e escreve a flor escolhida na URL
+│   └── flower-url.ts        lê a flor da URL e monta a URL da flor escolhida
+├── hooks/
+│   └── use-flower-url.ts    grava a flor escolhida na URL, sem criar entrada no histórico
 ├── components/
     ├── home.tsx             flor, frase e seletor
     ├── flower.tsx           monta o SVG da flor escolhida
