@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-allura: var(--nf-allura), cursive;
   --font-serif-soft: var(--nf-cormorant), Georgia, serif;
@@ -512,3 +514,179 @@ body {
     opacity: 1;
   }
 }
+
+/* =========================================================
+   BOTÃO DE TEMA
+   ========================================================= */
+
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(24, 26, 44, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   TEMA CLARO: uma manhã no jardim
+   Sem a classe dark, o palco vira papel creme com aquarelas
+   da cor de cada flor; o que era luz vira cor.
+   ========================================================= */
+
+html:not(.dark) body {
+  background: #fbf5ec;
+  color: #3b2f2a;
+}
+
+html:not(.dark) .stage {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 32%, var(--glow), transparent 70%),
+    radial-gradient(ellipse 120% 80% at 50% 110%, var(--tint), transparent 70%),
+    linear-gradient(180deg, #fdf9f3 0%, #f6eee2 100%);
+}
+
+html:not(.dark) .stage[data-flower="rose"] {
+  --accent: #e11d48;
+  --glow: rgba(251, 113, 133, 0.3);
+  --tint: #fbd5dc;
+}
+html:not(.dark) .stage[data-flower="colombian"] {
+  --accent: #be123c;
+  --glow: rgba(225, 29, 72, 0.22);
+  --tint: #f7cfd6;
+}
+html:not(.dark) .stage[data-flower="rose-blue"] {
+  --accent: #2563eb;
+  --glow: rgba(96, 165, 250, 0.3);
+  --tint: #d3e3fb;
+}
+html:not(.dark) .stage[data-flower="colombian-blue"] {
+  --accent: #1d4ed8;
+  --glow: rgba(59, 130, 246, 0.26);
+  --tint: #cfdcf8;
+}
+html:not(.dark) .stage[data-flower="sunflower"] {
+  --accent: #c2700a;
+  --glow: rgba(251, 191, 36, 0.34);
+  --tint: #f8e2a9;
+}
+html:not(.dark) .stage[data-flower="hydrangea"] {
+  --accent: #3b6fd8;
+  --glow: rgba(125, 180, 255, 0.34);
+  --tint: #d8e6fb;
+}
+html:not(.dark) .stage[data-flower="lily"] {
+  --accent: #7c6f9b;
+  --glow: rgba(196, 181, 253, 0.28);
+  --tint: #e6e1f2;
+}
+html:not(.dark) .stage[data-flower="lost"] {
+  --accent: #7c3aed;
+  --glow: rgba(167, 139, 250, 0.26);
+  --tint: #e4dcfb;
+}
+
+/* papel: o ruído vira granulado de papel */
+html:not(.dark) .stage::after {
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+}
+
+/* pólen em vez de poeira de luz */
+html:not(.dark) .dust i {
+  box-shadow: none;
+  opacity: 0;
+  filter: saturate(0.9);
+}
+
+/* flores brancas e claras ganham uma sombra leve para não sumirem no papel */
+html:not(.dark) .flower {
+  filter: drop-shadow(0 10px 18px rgba(90, 60, 40, 0.14));
+}
+
+html:not(.dark) .flower-sparkles {
+  color: var(--accent);
+}
+
+html:not(.dark) .message {
+  background: linear-gradient(
+    180deg,
+    #4a3238 0%,
+    color-mix(in oklab, var(--accent) 75%, #2a1a20) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+html:not(.dark) .picker,
+html:not(.dark) .option-group {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(90, 60, 40, 0.12);
+  box-shadow:
+    0 12px 32px -14px rgba(90, 60, 40, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html:not(.dark) .picker-item,
+html:not(.dark) .option-item {
+  color: rgba(59, 47, 42, 0.62);
+}
+
+html:not(.dark) .picker-item:hover,
+html:not(.dark) .option-item:hover {
+  color: #2a1f1b;
+  background: rgba(90, 60, 40, 0.06);
+}
+
+html:not(.dark) .picker-item[aria-checked="true"],
+html:not(.dark) .option-item[aria-checked="true"] {
+  color: #2a1f1b;
+  background: #fff;
+  box-shadow:
+    0 2px 8px -2px rgba(90, 60, 40, 0.2),
+    inset 0 0 0 1px rgba(90, 60, 40, 0.1);
+}
+
+html:not(.dark) .picker-dot {
+  box-shadow:
+    inset 0 -3px 5px rgba(0, 0, 0, 0.2),
+    inset 0 2px 3px rgba(255, 255, 255, 0.5),
+    0 2px 6px -1px rgba(90, 60, 40, 0.35);
+}
+
+html:not(.dark) .pill-link,
+html:not(.dark) .theme-toggle {
+  color: #3b2f2a;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(90, 60, 40, 0.14);
+  box-shadow: 0 10px 28px -14px rgba(90, 60, 40, 0.35);
+}
+
+html:not(.dark) .pill-link:hover,
+html:not(.dark) .theme-toggle:hover {
+  color: #2a1f1b;
+  background: #fff;
+}
+

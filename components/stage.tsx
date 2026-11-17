@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import { ThemeToggle } from "./theme-toggle";
 
 const DUST = Array.from({ length: 16 }, (_, i) => ({
   left: `${(i * 37 + 11) % 100}%`,
@@ -20,6 +21,7 @@ export const Stage = ({ theme, children }: StageProps) => (
     data-flower={theme}
     className="stage min-h-dvh flex items-center flex-col gap-4 px-6 pt-6 sm:pt-10 text-center pb-6"
   >
+    <ThemeToggle />
     <div className="halo" aria-hidden="true" />
     <div className="dust" aria-hidden="true">
       {DUST.map((d, i) => (

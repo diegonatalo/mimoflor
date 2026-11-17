@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Allura, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import { THEME_COLORS, THEME_KEY } from "@/lib/storage-keys";
+import { themeScript } from "@/lib/theme";
 
 const allura = Allura({ subsets: ["latin"], weight: "400", variable: "--nf-allura", display: "swap" });
 const cormorant = Cormorant_Garamond({
@@ -51,14 +53,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07070d",
+  themeColor: THEME_COLORS.dark,
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${allura.variable} ${cormorant.variable}`}>
+    <html lang="pt-BR" className={`${allura.variable} ${cormorant.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript(THEME_KEY, THEME_COLORS) }} />
+      </head>
       <body>{children}</body>
     </html>
   );

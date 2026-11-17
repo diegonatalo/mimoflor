@@ -75,7 +75,7 @@ export default function NotFound() {
         <h1 className="fade-up message font-allura text-2xl sm:text-5xl leading-tight px-2 pb-1">
           Essa flor ainda não nasceu por aqui
         </h1>
-        <p className="fade-in text-base sm:text-lg italic text-white/55">
+        <p className="fade-in text-base sm:text-lg italic text-stone-600 dark:text-white/55">
           O endereço que você procurou não existe no jardim.
         </p>
       </div>
