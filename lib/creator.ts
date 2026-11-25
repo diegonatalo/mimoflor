@@ -1,4 +1,4 @@
-import { isRose, type FlowerChoice, type FlowerColor, type PickerFlower } from "@/lib/flowers";
+import { hasColor, type FlowerChoice, type FlowerColor, type PickerFlower } from "@/lib/flowers";
 import type { Gift } from "@/lib/gift";
 
 /** O que está na tela de criação, antes de virar presente. */
@@ -20,13 +20,15 @@ export const INITIAL_DRAFT: Draft = {
 
 /** A flor que a tela está mostrando. */
 export const choiceOf = (draft: Pick<Draft, "picker" | "roseKind" | "color">): FlowerChoice =>
-  draft.picker === "rose" ? { kind: draft.roseKind, color: draft.color } : { kind: draft.picker, color: "red" };
+  draft.picker === "rose"
+    ? { kind: draft.roseKind, color: draft.color }
+    : { kind: draft.picker, color: hasColor(draft.picker) ? draft.color : "red" };
 
 /** O presente que vai ser cifrado. */
 export const giftFromDraft = (draft: Draft): Gift => {
   const flower = choiceOf(draft);
   return {
-    flower: { kind: flower.kind, color: isRose(flower.kind) ? flower.color : "red" },
+    flower: { kind: flower.kind, color: hasColor(flower.kind) ? flower.color : "red" },
     to: draft.to.trim(),
     note: draft.note.trim(),
   };

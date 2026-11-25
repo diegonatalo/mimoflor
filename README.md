@@ -63,7 +63,7 @@ Escolha uma flor, escreva para quem é e envie um link curto. Quem abre vê a fl
 
 <div align="center">
 
-<img src="docs/assets/f-01.svg" alt="Sete flores desenhadas em código: Rosa nacional e colombiana (vermelha ou azul), girassol, hortênsia e lírio, em SVG feito do zero. O caule sobe, as folhas abrem e as pétalas se abrem uma a uma." width="49%" />
+<img src="docs/assets/f-01.svg" alt="Sete flores e um buquê desenhados em código: Rosa nacional e colombiana (vermelha ou azul), girassol, hortênsia e lírio, e um buquê com todas elas, em SVG feito do zero. O caule sobe, as folhas abrem e as pétalas se abrem uma a uma." width="49%" />
 <img src="docs/assets/f-02.svg" alt="Para quem e bilhete surpresa: Um nome e um bilhete de até 280 caracteres, que só surge depois que a flor termina de abrir." width="49%" />
 <br />
 <img src="docs/assets/f-03.svg" alt="Link curto e sem spoiler: O link tem só um código de 10 letras e a chave, cerca de 60 caracteres no total. Nome e bilhete não aparecem nele." width="49%" />

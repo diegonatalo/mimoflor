@@ -1,6 +1,7 @@
 import { useId, type ComponentType } from "react";
 import { BLOOM_SECONDS, flowerName, type FlowerChoice, type FlowerKind } from "@/lib/flowers";
 import { cn } from "@/lib/cn";
+import { Bouquet } from "./flowers/bouquet";
 import { ColombianRose } from "./flowers/colombian-rose";
 import { Hydrangea } from "./flowers/hydrangea";
 import { Lily } from "./flowers/lily";
@@ -15,6 +16,7 @@ const DRAWINGS: Record<FlowerKind, ComponentType<DrawingProps>> = {
   sunflower: Sunflower,
   hydrangea: Hydrangea,
   lily: Lily,
+  bouquet: Bouquet,
 };
 
 type FlowerProps = {

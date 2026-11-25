@@ -22,6 +22,11 @@ describe("parseGift", () => {
     expect(gift).toEqual(GIFT);
   });
 
+  it("o buquê guarda a cor das rosas", () => {
+    const gift = parseGift({ v: 1, flower: { kind: "bouquet", color: "blue" }, to: "", note: "" });
+    expect(gift?.flower).toEqual({ kind: "bouquet", color: "blue" });
+  });
+
   it("só as rosas guardam a cor", () => {
     const gift = parseGift({ v: 1, flower: { kind: "sunflower", color: "blue" }, to: "", note: "" });
     expect(gift?.flower).toEqual({ kind: "sunflower", color: "red" });
