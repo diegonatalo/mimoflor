@@ -1,7 +1,7 @@
 <!-- Arquivo gerado pelo readme-kit. Não edite aqui: altere docs/readme/ e rode "readme-kit build". -->
 <div align="center">
 
-<img src="docs/assets/banner.svg" alt="Mimoflor: Uma flor para alegrar o dia de alguém. github.com/diegonatalo/mimoflor. Stack: Next.js 16, React 19, TypeScript 6, Tailwind CSS 4" width="100%" />
+<img src="docs/assets/banner.svg" alt="Mimoflor: Mande uma flor que floresce na tela de alguém. github.com/diegonatalo/mimoflor. Stack: Next.js 16, React 19, TypeScript 6, Tailwind CSS 4" width="100%" />
 
 <br />
 
@@ -14,6 +14,7 @@
 ![React](https://img.shields.io/badge/React_19-20232a?style=flat-square&logo=react&logoColor=61dafb)
 ![TypeScript](https://img.shields.io/badge/TypeScript_6-3178c6?style=flat-square&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06b6d4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Privacidade](https://img.shields.io/badge/mensagens-cifradas_no_aparelho-c22f62?style=flat-square)
 ![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-16a34a?style=flat-square)
 
 </div>
@@ -26,8 +27,8 @@
 
 </div>
 
-**Uma flor para alegrar o dia de alguém.**<br />
-Escolha uma flor, veja ela nascer em animação e compartilhe um link bonito, leve e sem cadastro.
+**Mande uma flor que floresce na tela de alguém.**<br />
+Escolha uma flor, escreva para quem é e envie um link curto. Quem abre vê a flor nascer pétala por pétala e, depois, um bilhete surpresa. Tudo é cifrado no seu aparelho: nem o servidor consegue ler as mensagens.
 
 <br />
 
@@ -41,16 +42,12 @@ Escolha uma flor, veja ela nascer em animação e compartilhe um link bonito, le
 
 <table>
   <tr>
-    <td align="center" width="50%"><img src="docs/assets/shot-01.svg" alt="Rosa nacional vermelha, vista de cima, sobre fundo rosado" width="100%" /><br />
-      <sub><b>Rosa nacional</b>: pétalas em espiral, vista de cima.</sub></td>
-    <td align="center" width="50%"><img src="docs/assets/shot-02.svg" alt="Rosa colombiana azul, em taça alta e fechada" width="100%" /><br />
-      <sub><b>Rosa colombiana azul</b>: taça alta, na cor azul.</sub></td>
-  </tr>
-  <tr>
-    <td align="center" width="50%"><img src="docs/assets/shot-03.svg" alt="Girassol amarelo sobre fundo dourado" width="100%" /><br />
-      <sub><b>Girassol</b>: miolo escuro e pétalas amarelas.</sub></td>
-    <td align="center" width="50%"><img src="docs/assets/shot-04.svg" alt="Lírio branco sobre fundo claro" width="100%" /><br />
-      <sub><b>Lírio</b>: pétalas brancas e alongadas.</sub></td>
+    <td align="center" width="33%"><img src="docs/assets/shot-01.svg" alt="Tela de criação com uma rosa colombiana vermelha e o bilhete surpresa ligado" width="100%" /><br />
+      <sub><b>Criar</b>: flor, frase e bilhete surpresa.</sub></td>
+    <td align="center" width="33%"><img src="docs/assets/shot-02.svg" alt="Convite com o texto Ana, chegou uma flor pra você e o botão para abrir" width="100%" /><br />
+      <sub><b>Convite</b>: a surpresa antes da flor.</sub></td>
+    <td align="center" width="33%"><img src="docs/assets/shot-03.svg" alt="A flor aberta com a mensagem e o bilhete surpresa abaixo" width="100%" /><br />
+      <sub><b>A flor nasceu</b>: e o bilhete chega depois.</sub></td>
   </tr>
 </table>
 
@@ -66,17 +63,17 @@ Escolha uma flor, veja ela nascer em animação e compartilhe um link bonito, le
 
 <div align="center">
 
-<img src="docs/assets/f-01.svg" alt="Escolher a flor: Rosa, girassol, hortênsia ou lírio. A hortênsia abre por padrão." width="49%" />
-<img src="docs/assets/f-02.svg" alt="Personalizar a rosa: Escolha o tipo (nacional, vista de cima, ou colombiana, de taça alta) e a cor (vermelha ou azul)." width="49%" />
+<img src="docs/assets/f-01.svg" alt="Sete flores desenhadas em código: Rosa nacional e colombiana (vermelha ou azul), girassol, hortênsia e lírio, em SVG feito do zero. O caule sobe, as folhas abrem e as pétalas se abrem uma a uma." width="49%" />
+<img src="docs/assets/f-02.svg" alt="Para quem, frase e bilhete surpresa: Um nome, uma frase de até 120 caracteres que aparece com a flor e um bilhete de até 280 que só surge depois que ela termina de abrir." width="49%" />
 <br />
-<img src="docs/assets/f-03.svg" alt="Ver a flor nascer: O caule brota, as folhas se desenrolam e as pétalas se abrem uma a uma. Depois ela balança e brilha." width="49%" />
-<img src="docs/assets/f-04.svg" alt="Clima que acompanha a flor: O fundo, o brilho e a poeira de luz mudam de cor com a flor escolhida." width="49%" />
+<img src="docs/assets/f-03.svg" alt="Link curto e sem spoiler: O link tem só um código de 10 letras e a chave, cerca de 60 caracteres no total. Nome, frase e bilhete não aparecem nele." width="49%" />
+<img src="docs/assets/f-04.svg" alt="Cifrado no aparelho: A flor é cifrada no navegador com AES-GCM. O banco guarda só o texto cifrado; a chave vai depois do #, que nunca chega ao servidor." width="49%" />
 <br />
-<img src="docs/assets/f-05.svg" alt="Compartilhar por link: A flor fica no endereço (?flor=rosa&amp;tipo=colombiana&amp;cor=azul). Quem abre o link vê a mesma flor." width="49%" />
-<img src="docs/assets/f-06.svg" alt="Usar no celular: A flor se ajusta à largura e à altura da tela, e a animação é leve em aparelhos simples." width="49%" />
+<img src="docs/assets/f-05.svg" alt="Convite antes da flor: Quem recebe vê “Ana, chegou uma flor pra você” e um botão para abrir. A flor nasce ao tocar, e dá para ver nascer de novo." width="49%" />
+<img src="docs/assets/f-06.svg" alt="Compartilhar fácil: Copiar o link, abrir o WhatsApp com tudo pronto ou usar a folha de compartilhar do celular." width="49%" />
 <br />
-<img src="docs/assets/f-07.svg" alt="Navegar pelo teclado: O seletor funciona com teclado e a animação é encurtada para quem prefere menos movimento." width="49%" />
-<img src="docs/assets/f-08.svg" alt="Página 404 própria: Endereços e flores que não existem levam a um broto que ainda não floresceu." width="49%" />
+<img src="docs/assets/f-07.svg" alt="Landing com o porquê do projeto: Uma página sobre usar tecnologia para deixar o dia de alguém mais bonito, com como funciona, perguntas e prints gerados pelo E2E." width="49%" />
+<img src="docs/assets/f-08.svg" alt="Claro, escuro e acessível: Orvalho e Jardim à noite, teclado em tudo, leitor de tela e respeito a quem prefere menos movimento." width="49%" />
 
 </div>
 
@@ -90,7 +87,7 @@ Escolha uma flor, veja ela nascer em animação e compartilhe um link bonito, le
 
 <div align="center">
 
-<img src="docs/assets/stack.svg" alt="Stack: Next.js 16, React 19, TypeScript 6, Tailwind CSS 4, ESLint 9, pnpm" width="100%" />
+<img src="docs/assets/stack.svg" alt="Stack: Next.js 16, React 19, TypeScript 6, Tailwind CSS 4, Drizzle ORM, Neon Postgres, Web Crypto (AES-GCM), Playwright, pnpm" width="100%" />
 
 </div>
 
@@ -102,13 +99,15 @@ Escolha uma flor, veja ela nascer em animação e compartilhe um link bonito, le
 
 </div>
 
-Requer [Node.js](https://nodejs.org) e [pnpm](https://pnpm.io).
+Requer [Node.js](https://nodejs.org), [pnpm](https://pnpm.io) e um Postgres (no computador, uma branch `dev` do Neon com um banco terminado em `_dev`).
 
 ```bash
 git clone https://github.com/diegonatalo/mimoflor.git
 cd mimoflor
 pnpm install
-pnpm dev        # http://localhost:3000
+cp .env.example .env.local   # preencha DATABASE_URL e DATABASE_URL_UNPOOLED
+pnpm db:migrate              # cria as tabelas no banco do .env.local
+pnpm dev                     # http://localhost:3000
 ```
 
 | Comando | O que faz |
@@ -117,16 +116,34 @@ pnpm dev        # http://localhost:3000
 | `pnpm build` | Gera o build de produção (checa os tipos) |
 | `pnpm start` | Serve o build de produção |
 | `pnpm lint` | Roda o ESLint |
+| `pnpm test` | Roda os testes (Vitest) |
+| `pnpm test:e2e` | Roda os testes de ponta a ponta (Playwright) contra o build |
+| `pnpm db:generate` | Gera uma migração em `drizzle/` depois de mudar `lib/db/schema.ts` |
+| `pnpm db:migrate` | Aplica as migrações no banco do `.env.local` |
+
+### 🔑 Variáveis de ambiente
+
+Veja [`.env.example`](.env.example).
+
+| Variável | Descrição | Se não definir |
+|---|---|---|
+| `DATABASE_URL` | Postgres (Neon) com pooling, usado pelo app. No computador, o nome do banco precisa terminar em `_dev`. | O app não guarda flores |
+| `DATABASE_URL_UNPOOLED` | Conexão direta, usada pelas migrações. | Usa a `DATABASE_URL` |
+| `RATE_LIMIT_SECRET` | Chave do HMAC que embaralha o IP na contagem de flores por hora. Uma diferente por ambiente. | Cada servidor sorteia a sua |
+| `NEXT_PUBLIC_SITE_URL` | URL pública do site, para Open Graph, robots e sitemap. Sem barra no final. | Usa `https://mimoflor.vercel.app` |
 
 ### 🧪 Testes
 
 ```bash
-pnpm test
+pnpm test        # Vitest
+pnpm test:e2e    # Playwright, contra o build de produção e o Postgres
 ```
 
-Usa [Vitest](https://vitest.dev). Os testes cobrem a leitura e a montagem da URL da flor (`lib/flower-url.ts`), a gravação dela no histórico (`hooks/use-flower-url.ts`) e a escolha de flores e opções na home.
+O Vitest cobre a cifragem (abre com a chave certa, recusa chave errada e texto adulterado), a validação do presente e do que o servidor guarda, o código curto, a geometria das flores, a tela de criação (bilhete surpresa, envio só do texto cifrado) e a de quem recebe (convite, bilhete depois da flor, link sem chave).
 
-Para reexecutar ao salvar: `pnpm test:watch`. Para ver a cobertura: `pnpm test:coverage`.
+O Playwright cria uma flor pela interface, abre o link num navegador limpo, confere que a chave nunca vai ao servidor e que o bilhete aparece depois da flor. No CI, roda contra um Postgres descartável.
+
+Os prints da landing e deste README saem de `SCREENSHOTS=1 pnpm test:e2e e2e/screenshots.spec.ts`.
 
 <br />
 
@@ -138,28 +155,29 @@ Para reexecutar ao salvar: `pnpm test:watch`. Para ver a cobertura: `pnpm test:c
 
 ```text
 ├── app/
-│   ├── layout.tsx           metadados, Open Graph, ícones e fontes
-│   ├── page.tsx             "/" lê a flor da URL e abre a home (flor inexistente cai na 404)
-│   ├── not-found.tsx        página 404
-│   └── globals.css          temas por flor, fundo, tipografia e seletor
-├── lib/
-│   └── flower-url.ts        lê a flor da URL e monta a URL da flor escolhida
-├── hooks/
-│   └── use-flower-url.ts    grava a flor escolhida na URL, sem criar entrada no histórico
+│   ├── page.tsx                 "/" a landing
+│   ├── app/page.tsx             "/app" criar a flor
+│   ├── app/f/[id]/page.tsx      "/app/f/<código>#<chave>" quem recebe
+│   ├── privacidade/, termos/    páginas legais
+│   ├── not-found.tsx, error.tsx 404 e erro no visual do app
+│   └── opengraph-image.tsx      prévia do link
 ├── components/
-    ├── home.tsx             flor, frase e seletor
-    ├── flower.tsx           monta o SVG da flor escolhida
-    ├── flower.css           linha do tempo e keyframes da animação
-    ├── flower-picker.tsx    seletor de flores
-    ├── flower-options.tsx   opções da flor escolhida (tipo, cor)
-    ├── message.tsx          frase abaixo da flor
-    ├── stage.tsx            fundo com halo e poeira de luz
-    └── flowers/
-        ├── registry.tsx     flores disponíveis, slugs e opções
-        ├── shared.tsx       caule, folhas, chão, brilhos e pétala genérica
-        ├── palettes.ts      cores (vermelha e azul) das rosas
-        ├── utils.ts         aleatório determinístico e helper de variáveis CSS
-        └── rose, colombian-rose, sunflower, hydrangea, lily
+│   ├── flower.tsx, flower.css   monta a flor e a animação de nascer
+│   ├── flowers/                 rosa, rosa colombiana, girassol, hortênsia e lírio
+│   ├── creator/                 formulário, bilhete surpresa e tela de compartilhar
+│   ├── received/                convite, flor e bilhete de quem recebe
+│   └── landing/                 seções da landing
+├── lib/
+│   ├── gift.ts                  o presente e a validação dele
+│   ├── gift-crypto.ts           cifra e decifra no navegador (AES-GCM)
+│   ├── sealed.ts                o que o servidor aceita guardar e por quanto tempo
+│   ├── flowers.ts               catálogo das flores e tempo de abrir
+│   ├── flower-geometry.ts       contas dos desenhos (sementes, florzinhas, estames)
+│   ├── data/actions.ts          guarda a flor cifrada e limita por hora
+│   ├── data/queries.ts          lê a flor cifrada de um código
+│   └── db/                      schema e conexão (Drizzle + pg)
+├── drizzle/                     migrações
+└── e2e/                         Playwright: fluxo completo, navegação e prints
 ```
 
 <br />
@@ -170,48 +188,38 @@ Para reexecutar ao salvar: `pnpm test:watch`. Para ver a cobertura: `pnpm test:c
 
 </div>
 
+### 🔐 Como o link fica curto e sem spoiler
+
+1. O navegador de quem envia monta o presente (flor, nome, frase e bilhete) e cifra com uma chave AES-GCM nova, gerada ali mesmo.
+2. Só o texto cifrado e o IV vão para o servidor, que guarda os dois no Postgres com um código aleatório de 10 letras, válido por 90 dias.
+3. O link é `/app/f/<código>#<chave>`. O que vem depois do `#` nunca sai do navegador: não chega ao servidor, ao banco nem aos logs.
+4. Quem recebe abre o link, o navegador busca o texto cifrado pelo código e decifra com a chave do `#`.
+
+| Peça | Onde fica |
+|---|---|
+| Nome, frase e bilhete | Só dentro do texto cifrado |
+| Texto cifrado e IV | Banco (Neon, São Paulo), por 90 dias |
+| Chave | Só no link, depois do `#` |
+| IP de quem cria | Nunca: só um HMAC, para limitar 30 flores por hora |
+
 ### 🧩 Como adicionar uma nova flor
 
-1. Crie `components/flowers/minha-flor.tsx` exportando um componente de gradientes (`MinhaFlorDefs`) e um da planta (`MinhaFlorPlant`). Use `Stem`, `Leaf` e `Petal` de `shared.tsx`.
-2. Registre a flor em `flowers/registry.tsx`: nome, `slug` da URL, cor da bolinha no seletor e uma função `view` que devolve o desenho, o tema, a cor dos brilhos, a posição da cabeça e o segundo em que ela começa a abrir.
-3. Crie o tema de cores em `app/globals.css`, no bloco `.stage[data-flower="..."]`.
-4. Para dar variações (como tipo e cor da rosa), declare `options` no registro. O seletor desenha a fileira de opções sozinho, e `view` recebe a escolha feita.
-
-### 🧠 Como funciona
-
-| Conceito | Regra |
-|---|---|
-| **Flor padrão** | Sem `flor` na URL, abre a hortênsia. |
-| **Parâmetros** | `flor` (`rosa`, `girassol`, `hortensia`, `lirio`), e só para a rosa: `tipo` (`nacional`, `colombiana`) e `cor` (`vermelha`, `azul`). |
-| **Valor inválido** | Um valor que não existe em `flor`, `tipo` ou `cor` leva à página 404. |
-| **Parâmetros de fora** | `utm_source`, `fbclid` e similares são ignorados. `tipo` e `cor` em flor que não os tem também. |
-| **Opções da rosa** | Na abertura da página, entram só depois do seletor de flores. Em trocas seguintes, aparecem na hora. |
-| **Animação** | Só CSS, sem biblioteca. As flores são SVG desenhado em código. |
-
-A lógica da URL fica em `lib/flower-url.ts`, e cada flor declara o próprio texto de URL (`slug`) no registro.
+1. Desenhe a flor em `components/flowers/minha-flor.tsx` num quadro de 320 × 400, com o caule saindo do pé e a cabeça no terço de cima. Use `Stem`, `Leaf`, `Grow` e `Fade` de `shared.tsx`: cada peça recebe o segundo em que nasce.
+2. Inclua o tipo em `FlowerKind`, o nome em `flowerName` e o tempo de abrir em `BLOOM_SECONDS` (`lib/flowers.ts`). O bilhete surpresa espera esse tempo.
+3. Registre o desenho em `DRAWINGS` (`components/flower.tsx`) e, se for aparecer no seletor, em `PICKER`.
 
 ### 🌐 Deploy
 
-Publicado na [Vercel](https://vercel.com). Não há configuração extra: a Vercel detecta o Next.js. Uma flor inexistente na URL (ou qualquer outro caminho) devolve a 404 do próprio site, com status 404 de verdade.
+Publicado na [Vercel](https://vercel.com), só a partir da `main`. O banco vem da integração Neon da Vercel. O script `vercel-build` roda `drizzle-kit migrate` antes do `next build`, então as migrações sobem junto com o deploy.
 
-> [!NOTE]
-> As URLs das meta tags Open Graph (`metadataBase` em `app/layout.tsx`) são absolutas. Se o domínio mudar, atualize-as.
-
-Ícones e imagens ficam em `public/`:
-
-| Arquivo | Para que serve |
-|---|---|
-| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` | Ícone do site |
-| `og-image.jpg` | Prévia do link compartilhado (1200×630), hoje a da hortênsia |
-| `og/*.jpg` | Uma prévia pronta para cada flor, ainda sem uso nas meta tags |
+> [!IMPORTANT]
+> Defina `RATE_LIMIT_SECRET` na Vercel (um valor diferente por ambiente). Sem ele, cada instância sorteia a sua chave e o limite de flores por hora passa a contar separado.
 
 ### 🧭 Próximos passos
 
-- [ ] Prévia de link diferente por flor (hoje as meta tags são fixas, então o link mostra sempre a hortênsia)
-- [ ] Mensagens personalizadas
 - [ ] Mais flores (tulipa, margarida, orquídea)
-- [ ] Mensagens para datas especiais, como aniversários
-- [ ] CI e mais testes (hoje só a leitura da URL da flor tem testes, além de `tsc` e ESLint)
+- [ ] Mensagens prontas para datas especiais, como aniversários
+- [ ] E-mail definitivo de privacidade (hoje é provisório)
 
 ### 📄 Créditos e licença
 

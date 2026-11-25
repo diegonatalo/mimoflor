@@ -1,7 +1,7 @@
 {
   "name": "Mimoflor",
   "repo": "mimoflor",
-  "tagline": "Uma flor para alegrar o dia de alguém.",
+  "tagline": "Mande uma flor que floresce na tela de alguém.",
   "urls": {
     "demo": "https://mimoflor.vercel.app"
   },
@@ -18,80 +18,82 @@
     {
       "pkg": "tailwindcss"
     },
-    {
-      "pkg": "eslint"
-    },
+    "Drizzle ORM",
+    "Neon Postgres",
+    "Web Crypto (AES-GCM)",
+    "Playwright",
     "pnpm"
   ],
-  "badges_extra": [],
+  "badges_extra": [
+    {
+      "alt": "Privacidade",
+      "label": "mensagens",
+      "message": "cifradas no aparelho",
+      "color": "c22f62"
+    }
+  ],
   "features": [
     {
-      "title": "Escolher a flor",
-      "desc": "Rosa, girassol, hortênsia ou lírio. A hortênsia abre por padrão."
+      "title": "Sete flores desenhadas em código",
+      "desc": "Rosa nacional e colombiana (vermelha ou azul), girassol, hortênsia e lírio, em SVG feito do zero. O caule sobe, as folhas abrem e as pétalas se abrem uma a uma."
     },
     {
-      "title": "Personalizar a rosa",
-      "desc": "Escolha o tipo (nacional, vista de cima, ou colombiana, de taça alta) e a cor (vermelha ou azul)."
+      "title": "Para quem, frase e bilhete surpresa",
+      "desc": "Um nome, uma frase de até 120 caracteres que aparece com a flor e um bilhete de até 280 que só surge depois que ela termina de abrir."
     },
     {
-      "title": "Ver a flor nascer",
-      "desc": "O caule brota, as folhas se desenrolam e as pétalas se abrem uma a uma. Depois ela balança e brilha."
+      "title": "Link curto e sem spoiler",
+      "desc": "O link tem só um código de 10 letras e a chave, cerca de 60 caracteres no total. Nome, frase e bilhete não aparecem nele."
     },
     {
-      "title": "Clima que acompanha a flor",
-      "desc": "O fundo, o brilho e a poeira de luz mudam de cor com a flor escolhida."
+      "title": "Cifrado no aparelho",
+      "desc": "A flor é cifrada no navegador com AES-GCM. O banco guarda só o texto cifrado; a chave vai depois do #, que nunca chega ao servidor."
     },
     {
-      "title": "Compartilhar por link",
-      "desc": "A flor fica no endereço (?flor=rosa&tipo=colombiana&cor=azul). Quem abre o link vê a mesma flor."
+      "title": "Convite antes da flor",
+      "desc": "Quem recebe vê “Ana, chegou uma flor pra você” e um botão para abrir. A flor nasce ao tocar, e dá para ver nascer de novo."
     },
     {
-      "title": "Usar no celular",
-      "desc": "A flor se ajusta à largura e à altura da tela, e a animação é leve em aparelhos simples."
+      "title": "Compartilhar fácil",
+      "desc": "Copiar o link, abrir o WhatsApp com tudo pronto ou usar a folha de compartilhar do celular."
     },
     {
-      "title": "Navegar pelo teclado",
-      "desc": "O seletor funciona com teclado e a animação é encurtada para quem prefere menos movimento."
+      "title": "Landing com o porquê do projeto",
+      "desc": "Uma página sobre usar tecnologia para deixar o dia de alguém mais bonito, com como funciona, perguntas e prints gerados pelo E2E."
     },
     {
-      "title": "Página 404 própria",
-      "desc": "Endereços e flores que não existem levam a um broto que ainda não floresceu."
+      "title": "Claro, escuro e acessível",
+      "desc": "Orvalho e Jardim à noite, teclado em tudo, leitor de tela e respeito a quem prefere menos movimento."
     }
   ],
   "banner": {
     "shot": {
-      "file": "public/og-image.jpg",
+      "file": "docs/screenshots/landing.png",
       "title": "mimoflor.vercel.app"
     },
     "chips": 4
   },
   "demo": {
     "note": "",
-    "layout": "grid2",
+    "layout": "grid3",
     "shots": [
       {
-        "file": "public/og/rose.jpg",
-        "title": "Rosa nacional",
-        "alt": "Rosa nacional vermelha, vista de cima, sobre fundo rosado",
-        "caption": "<b>Rosa nacional</b>: pétalas em espiral, vista de cima."
+        "file": "docs/screenshots/criar.png",
+        "title": "Criar",
+        "alt": "Tela de criação com uma rosa colombiana vermelha e o bilhete surpresa ligado",
+        "caption": "<b>Criar</b>: flor, frase e bilhete surpresa."
       },
       {
-        "file": "public/og/colombian-blue.jpg",
-        "title": "Rosa colombiana azul",
-        "alt": "Rosa colombiana azul, em taça alta e fechada",
-        "caption": "<b>Rosa colombiana azul</b>: taça alta, na cor azul."
+        "file": "docs/screenshots/recebido.png",
+        "title": "Convite",
+        "alt": "Convite com o texto Ana, chegou uma flor pra você e o botão para abrir",
+        "caption": "<b>Convite</b>: a surpresa antes da flor."
       },
       {
-        "file": "public/og/sunflower.jpg",
-        "title": "Girassol",
-        "alt": "Girassol amarelo sobre fundo dourado",
-        "caption": "<b>Girassol</b>: miolo escuro e pétalas amarelas."
-      },
-      {
-        "file": "public/og/lily.jpg",
-        "title": "Lírio",
-        "alt": "Lírio branco sobre fundo claro",
-        "caption": "<b>Lírio</b>: pétalas brancas e alongadas."
+        "file": "docs/screenshots/aberto.png",
+        "title": "A flor nasceu",
+        "alt": "A flor aberta com a mensagem e o bilhete surpresa abaixo",
+        "caption": "<b>A flor nasceu</b>: e o bilhete chega depois."
       }
     ]
   },

@@ -1,1 +1,1 @@
-Escolha uma flor, veja ela nascer em animação e compartilhe um link bonito, leve e sem cadastro.
+Escolha uma flor, escreva para quem é e envie um link curto. Quem abre vê a flor nascer pétala por pétala e, depois, um bilhete surpresa. Tudo é cifrado no seu aparelho: nem o servidor consegue ler as mensagens.
