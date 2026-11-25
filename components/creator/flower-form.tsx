@@ -6,7 +6,7 @@ import { ArrowIcon } from "@/components/icons";
 import { INPUT, PRIMARY_BUTTON } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import type { Draft } from "@/lib/creator";
-import { PICKER, ROSE_COLORS, ROSE_KINDS, type FlowerKind } from "@/lib/flowers";
+import { PICKER, ROSE_COLORS, ROSE_KINDS, hasColor, type FlowerKind } from "@/lib/flowers";
 import { GIFT_LIMITS } from "@/lib/gift";
 
 const SWATCH: Record<Draft["color"], string> = {
@@ -42,12 +42,12 @@ export const FlowerForm = ({ draft, onChange, onSubmit, sending, error }: Flower
 
       <fieldset>
         <legend className="sr-only">Escolha uma flor</legend>
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-5 gap-1.5">
           {PICKER.map((item) => (
             <label
               key={item.id}
               className={cn(
-                "relative flex min-h-[76px] cursor-pointer flex-col items-center gap-1 rounded-[18px] border-[1.5px] px-1 py-2 text-[13px] font-semibold text-ink has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent",
+                "relative flex min-h-[76px] cursor-pointer flex-col items-center gap-1 rounded-2xl border-[1.5px] px-0.5 py-2 text-xs font-semibold tracking-[-0.01em] text-ink sm:text-[13px] has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent",
                 draft.picker === item.id ? "border-accent bg-accent-soft" : "border-line bg-surface hover:bg-surface-2",
               )}
             >
@@ -59,39 +59,46 @@ export const FlowerForm = ({ draft, onChange, onSubmit, sending, error }: Flower
                 onChange={() => onChange({ picker: item.id })}
                 className="absolute inset-0 m-0 cursor-pointer appearance-none opacity-0"
               />
-              <Flower flower={{ kind: thumb(item.id), color: item.id === "rose" ? draft.color : "red" }} size={36} still decorative className="pointer-events-none" />
+              <Flower flower={{ kind: thumb(item.id), color: hasColor(thumb(item.id)) ? draft.color : "red" }} size={36} still decorative className="pointer-events-none" />
               {item.label}
             </label>
           ))}
         </div>
       </fieldset>
 
-      {draft.picker === "rose" && (
+      {(draft.picker === "rose" || draft.picker === "bouquet") && (
         <div className="flex items-center justify-between gap-2">
-          <fieldset className="flex rounded-full bg-surface-2 p-1">
-            <legend className="sr-only">Tipo de rosa</legend>
-            {ROSE_KINDS.map((kind) => (
-              <label
-                key={kind.id}
-                className={cn(
-                  "relative flex min-h-10 cursor-pointer items-center rounded-full px-3 text-sm font-semibold sm:px-4 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-accent",
-                  draft.roseKind === kind.id ? "bg-ink text-bg" : "text-ink",
-                )}
-              >
-                <input
-                  type="radio"
-                  name="tipo"
-                  value={kind.id}
-                  checked={draft.roseKind === kind.id}
-                  onChange={() => onChange({ roseKind: kind.id })}
-                  className="absolute inset-0 m-0 cursor-pointer appearance-none opacity-0"
-                />
-                {kind.label}
-              </label>
-            ))}
-          </fieldset>
+          {draft.picker === "bouquet" && (
+            <p className="text-sm font-semibold text-muted" aria-hidden="true">
+              Cor das rosas
+            </p>
+          )}
+          {draft.picker === "rose" && (
+            <fieldset className="flex rounded-full bg-surface-2 p-1">
+              <legend className="sr-only">Tipo de rosa</legend>
+              {ROSE_KINDS.map((kind) => (
+                <label
+                  key={kind.id}
+                  className={cn(
+                    "relative flex min-h-10 cursor-pointer items-center rounded-full px-3 text-sm font-semibold sm:px-4 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-accent",
+                    draft.roseKind === kind.id ? "bg-ink text-bg" : "text-ink",
+                  )}
+                >
+                  <input
+                    type="radio"
+                    name="tipo"
+                    value={kind.id}
+                    checked={draft.roseKind === kind.id}
+                    onChange={() => onChange({ roseKind: kind.id })}
+                    className="absolute inset-0 m-0 cursor-pointer appearance-none opacity-0"
+                  />
+                  {kind.label}
+                </label>
+              ))}
+            </fieldset>
+          )}
           <fieldset className="flex gap-1.5">
-            <legend className="sr-only">Cor da rosa</legend>
+            <legend className="sr-only">{draft.picker === "bouquet" ? "Cor das rosas do buquê" : "Cor da rosa"}</legend>
             {ROSE_COLORS.map((color) => (
               <label
                 key={color.id}

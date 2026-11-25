@@ -37,7 +37,7 @@ export type Step = { title: string; text: string; flower: FlowerChoice };
 export const STEPS: Step[] = [
   {
     title: "Escolha a flor",
-    text: "Rosa nacional ou colombiana, vermelha ou azul. Girassol, hortênsia ou lírio. Cada uma com seu jeito de nascer.",
+    text: "Rosa nacional ou colombiana, vermelha ou azul. Girassol, hortênsia, lírio ou um buquê com todas elas. Cada uma com seu jeito de nascer.",
     flower: { kind: "rose", color: "red" },
   },
   {

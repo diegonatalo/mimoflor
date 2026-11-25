@@ -71,3 +71,19 @@ test("dá para voltar e mudar a flor sem perder o que foi escrito", async ({ pag
   await expect(page.getByRole("textbox", { name: "Para" })).toHaveValue("Caio");
   await expect(page.getByRole("radio", { name: "Girassol" })).toBeChecked();
 });
+
+test("o buquê chega com a cor das rosas escolhida", async ({ page, browser }) => {
+  await page.goto("/app");
+  await page.getByRole("radio", { name: "Buquê" }).check();
+  await page.getByRole("radio", { name: "Azul" }).check();
+  await page.getByRole("button", { name: "Enviar flor" }).click();
+  await expect(page.getByRole("heading", { name: "Agora, a melhor parte." })).toBeVisible();
+  const link = await page.getByRole("textbox", { name: "Link da flor" }).inputValue();
+
+  const context = await browser.newContext();
+  const other = await context.newPage();
+  await other.goto(link);
+  await other.getByRole("button", { name: "Abrir a flor" }).click();
+  await expect(other.getByRole("img", { name: "Buquê com rosas azuis" })).toBeVisible();
+  await context.close();
+});

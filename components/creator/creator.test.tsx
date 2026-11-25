@@ -31,6 +31,16 @@ describe("Creator", () => {
     expect(screen.getByRole("img", { name: "Girassol" })).toBeInTheDocument();
   });
 
+  it("o buquê pede só a cor das rosas", async () => {
+    const user = userEvent.setup();
+    render(<Creator />);
+    await user.click(screen.getByRole("radio", { name: "Buquê" }));
+    expect(screen.queryByRole("group", { name: "Tipo de rosa" })).not.toBeInTheDocument();
+    await user.click(screen.getByRole("radio", { name: "Azul" }));
+    expect(screen.getByRole("group", { name: "Cor das rosas do buquê" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Buquê com rosas azuis" })).toBeInTheDocument();
+  });
+
   it("envia só o presente cifrado e mostra o link com a chave", async () => {
     send.mockResolvedValue({ ok: true, id: "abcDEF1234" });
     const user = userEvent.setup();

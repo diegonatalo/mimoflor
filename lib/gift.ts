@@ -1,4 +1,4 @@
-import { FLOWER_COLORS, FLOWER_KINDS, isRose, type FlowerChoice } from "@/lib/flowers";
+import { FLOWER_COLORS, FLOWER_KINDS, hasColor, type FlowerChoice } from "@/lib/flowers";
 
 /** O presente: a flor, para quem é e o bilhete surpresa. Viaja cifrado. */
 export type Gift = {
@@ -37,7 +37,7 @@ export const parseGift = (value: unknown): Gift | null => {
   const note = text(raw.note, GIFT_LIMITS.note);
   if (to === null || note === null) return null;
 
-  return { flower: { kind, color: isRose(kind) ? color : "red" }, to, note };
+  return { flower: { kind, color: hasColor(kind) ? color : "red" }, to, note };
 };
 
 /** O JSON que é cifrado. */

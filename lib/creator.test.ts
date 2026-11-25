@@ -6,6 +6,10 @@ describe("choiceOf", () => {
     expect(choiceOf({ picker: "rose", roseKind: "rose", color: "blue" })).toEqual({ kind: "rose", color: "blue" });
   });
 
+  it("o buquê usa a cor escolhida para as rosas", () => {
+    expect(choiceOf({ picker: "bouquet", roseKind: "rose", color: "blue" })).toEqual({ kind: "bouquet", color: "blue" });
+  });
+
   it("as outras flores ignoram a cor da rosa", () => {
     expect(choiceOf({ picker: "lily", roseKind: "colombian", color: "blue" })).toEqual({ kind: "lily", color: "red" });
   });
