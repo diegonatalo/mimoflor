@@ -8,13 +8,13 @@ export const alt = `${SITE_NAME}: mande uma flor que floresce na tela de alguém
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// A Fraunces da identidade (a mesma do site), em arquivos estáticos: o gerador de
-// imagens não lê fontes variáveis nem woff2. Lidas uma vez, quando o módulo carrega.
-const font = (file: string) => readFile(join(process.cwd(), "node_modules/@fontsource/fraunces/files", file));
+// A Fraunces da identidade, em arquivos estáticos (o gerador de imagens não lê fontes
+// variáveis nem woff2), guardados em assets/fonts com a licença OFL. Caminhos fixos,
+// para o build da Vercel levar os arquivos junto com a função.
 const [regularItalic, medium, semibold] = await Promise.all([
-  font("fraunces-latin-400-italic.woff"),
-  font("fraunces-latin-500-normal.woff"),
-  font("fraunces-latin-600-normal.woff"),
+  readFile(join(process.cwd(), "assets/fonts/fraunces-latin-400-italic.woff")),
+  readFile(join(process.cwd(), "assets/fonts/fraunces-latin-500-normal.woff")),
+  readFile(join(process.cwd(), "assets/fonts/fraunces-latin-600-normal.woff")),
 ]);
 
 const INK = "#221A30";
