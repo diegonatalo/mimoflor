@@ -29,7 +29,7 @@ const sections: LegalSection[] = [
     content: (
       <ul className="list-disc space-y-3 pl-5">
         <li>
-          <strong>A flor cifrada.</strong> Quando você envia uma flor, o seu aparelho cifra a flor, o nome, a frase e o
+          <strong>A flor cifrada.</strong> Quando você envia uma flor, o seu aparelho cifra a flor, o nome e o
           bilhete antes de mandar qualquer coisa. Guardamos só esse texto cifrado, que não conseguimos ler, para entregá-lo
           a quem abrir o link (execução do serviço que você pediu). Ele é apagado depois de {STORE_LIMITS.days} dias.
         </li>

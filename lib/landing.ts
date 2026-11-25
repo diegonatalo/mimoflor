@@ -23,7 +23,7 @@ export const MANIFESTO = {
   ],
   quote: "O melhor retorno de um projeto não é um número. É alguém sorrindo do outro lado da tela.",
   values: [
-    { title: "Pequeno de propósito", text: "Uma tela, uma flor, uma frase. Nada para configurar, nada para aprender." },
+    { title: "Pequeno de propósito", text: "Uma tela, uma flor, um bilhete. Nada para configurar, nada para aprender." },
     { title: "Feito para ser enviado", text: "Não fica parado num app. Ele vive na conversa, entre você e quem você gosta." },
     {
       title: "A recompensa é a reação",
@@ -42,7 +42,7 @@ export const STEPS: Step[] = [
   },
   {
     title: "Escreva para quem é",
-    text: "Um nome, uma frase curta e, se quiser, um bilhete surpresa que só aparece depois que a flor abrir.",
+    text: "Um nome e, se quiser, um bilhete surpresa, que só aparece depois que a flor termina de abrir.",
     flower: { kind: "sunflower", color: "red" },
   },
   {
@@ -55,7 +55,7 @@ export const STEPS: Step[] = [
 export const FEATURES = [
   { title: "Desenhadas em código", text: "Cada flor é um desenho vetorial feito do zero. Fica nítida em qualquer tela e carrega num instante." },
   { title: "Sem cadastro", text: "Não pede conta, e-mail nem telefone. Você abre, escolhe e envia." },
-  { title: "Link curto, sem spoiler", text: "O link não mostra o nome, a frase nem o bilhete. Quem recebe só descobre ao abrir." },
+  { title: "Link curto, sem spoiler", text: "O link não mostra o nome nem o bilhete. Quem recebe só descobre ao abrir." },
   { title: "Cifrado no seu aparelho", text: "A flor sai do seu celular já cifrada. A chave fica no link: nem nós conseguimos ler." },
   { title: "Claro e escuro", text: "Segue o tema do seu aparelho, ou o que você preferir." },
   { title: "Para todo mundo", text: "Funciona só com o teclado, conversa com leitores de tela e respeita quem prefere menos movimento." },
@@ -64,7 +64,7 @@ export const FEATURES = [
 export const SCREENSHOTS = [
   { src: "/landing/criar.webp", caption: "Você escolhe a flor", alt: "Tela de criação com uma rosa colombiana vermelha e o bilhete surpresa ligado" },
   { src: "/landing/recebido.webp", caption: "A pessoa recebe o convite", alt: "Convite com o texto “Ana, chegou uma flor pra você” e o botão para abrir" },
-  { src: "/landing/aberto.webp", caption: "E a flor nasce para ela", alt: "A flor aberta com a mensagem e o bilhete surpresa logo abaixo" },
+  { src: "/landing/aberto.webp", caption: "E a flor nasce para ela", alt: "A flor aberta para Ana, com o bilhete surpresa logo abaixo" },
 ];
 
 export const PRIVACY_LINE =
@@ -76,7 +76,7 @@ export const FAQ = [
   { q: "A pessoa precisa instalar alguma coisa?", a: "Não. O link abre direto no navegador, em qualquer celular ou computador." },
   {
     q: "Posso escrever uma mensagem?",
-    a: `Pode, de dois jeitos. Uma frase de até ${GIFT_LIMITS.message} caracteres aparece junto com a flor. E o bilhete surpresa, de até ${GIFT_LIMITS.note}, só surge depois que ela termina de abrir.`,
+    a: `Pode. O bilhete surpresa, de até ${GIFT_LIMITS.note} caracteres, só aparece depois que a flor termina de abrir.`,
   },
   {
     q: "Quem consegue ler a mensagem?",

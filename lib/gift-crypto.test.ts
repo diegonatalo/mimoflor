@@ -7,7 +7,6 @@ import { IV_LENGTH, KEY_LENGTH, openGift, sealGift } from "@/lib/gift-crypto";
 const GIFT: Gift = {
   flower: { kind: "rose", color: "red" },
   to: "Ana",
-  message: "Uma flor para alegrar o seu dia",
   note: "Lembrei de você hoje cedo. ✿ Com carinho.",
 };
 

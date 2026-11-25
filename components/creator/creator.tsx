@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { AppHeader } from "@/components/app-header";
 import { Flower } from "@/components/flower";
-import { cn } from "@/lib/cn";
 import { INITIAL_DRAFT, choiceOf, giftFromDraft, type Draft } from "@/lib/creator";
 import { createGift } from "@/lib/data/actions";
 import { flowerName } from "@/lib/flowers";
@@ -62,9 +61,9 @@ export const Creator = () => {
               <Flower
                 key={`${flower.kind}-${flower.color}`}
                 flower={flower}
-                className={cn("relative", draft.noteOn ? "w-24 lg:w-[360px]" : "w-[180px] lg:w-[420px]")}
+                className="relative w-[136px] lg:w-[400px]"
               />
-              <p className={cn("relative font-serif text-[17px] italic text-muted lg:text-xl", draft.noteOn && "max-lg:hidden")}>
+              <p className="relative font-serif text-[17px] italic text-muted lg:text-xl">
                 {flowerName(flower)}
               </p>
             </section>

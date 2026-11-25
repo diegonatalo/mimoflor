@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { INITIAL_DRAFT, choiceOf, giftFromDraft } from "@/lib/creator";
-import { DEFAULT_MESSAGE } from "@/lib/gift";
 
 describe("choiceOf", () => {
   it("a rosa usa o tipo e a cor escolhidos", () => {
@@ -13,14 +12,12 @@ describe("choiceOf", () => {
 });
 
 describe("giftFromDraft", () => {
-  it("limpa os espaços e usa a frase padrão quando ela fica vazia", () => {
-    const gift = giftFromDraft({ ...INITIAL_DRAFT, to: "  Ana ", message: "   " });
-    expect(gift).toEqual({ flower: { kind: "colombian", color: "red" }, to: "Ana", message: DEFAULT_MESSAGE, note: "" });
+  it("leva a flor da tela e limpa os espaços do nome e do bilhete", () => {
+    const gift = giftFromDraft({ ...INITIAL_DRAFT, to: "  Ana ", note: "  Lembrei de você. " });
+    expect(gift).toEqual({ flower: { kind: "colombian", color: "red" }, to: "Ana", note: "Lembrei de você." });
   });
 
-  it("o bilhete só vai quando está ligado", () => {
-    const draft = { ...INITIAL_DRAFT, note: "Lembrei de você." };
-    expect(giftFromDraft(draft).note).toBe("");
-    expect(giftFromDraft({ ...draft, noteOn: true }).note).toBe("Lembrei de você.");
+  it("sem bilhete, vai só a flor", () => {
+    expect(giftFromDraft(INITIAL_DRAFT)).toEqual({ flower: { kind: "colombian", color: "red" }, to: "", note: "" });
   });
 });

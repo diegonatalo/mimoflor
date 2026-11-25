@@ -4,20 +4,15 @@ export type FlowerOptions = {
   /** nome do item no seletor (Rosa, Girassol, Hortênsia, Lírio) */
   flower?: string;
   to?: string;
-  message?: string;
   note?: string;
 };
 
 /** Preenche a tela de criação, sem enviar. */
-export const fillFlower = async (page: Page, { flower, to, message, note }: FlowerOptions = {}) => {
+export const fillFlower = async (page: Page, { flower, to, note }: FlowerOptions = {}) => {
   await page.goto("/app");
   if (flower) await page.getByRole("radio", { name: flower }).check();
   if (to) await page.getByRole("textbox", { name: "Para" }).fill(to);
-  if (message) await page.getByRole("textbox", { name: "Mensagem" }).fill(message);
-  if (note) {
-    await page.getByRole("switch", { name: "Bilhete surpresa" }).click();
-    await page.getByRole("textbox", { name: "Texto do bilhete surpresa" }).fill(note);
-  }
+  if (note) await page.getByRole("textbox", { name: "Bilhete surpresa" }).fill(note);
 };
 
 /** Cria uma flor pela interface e devolve o link para enviar. */

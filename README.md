@@ -43,10 +43,10 @@ Escolha uma flor, escreva para quem é e envie um link curto. Quem abre vê a fl
 <table>
   <tr>
     <td align="center" width="33%"><img src="docs/assets/shot-01.svg" alt="Tela de criação com uma rosa colombiana vermelha e o bilhete surpresa ligado" width="100%" /><br />
-      <sub><b>Criar</b>: flor, frase e bilhete surpresa.</sub></td>
+      <sub><b>Criar</b>: flor, para quem e bilhete surpresa.</sub></td>
     <td align="center" width="33%"><img src="docs/assets/shot-02.svg" alt="Convite com o texto Ana, chegou uma flor pra você e o botão para abrir" width="100%" /><br />
       <sub><b>Convite</b>: a surpresa antes da flor.</sub></td>
-    <td align="center" width="33%"><img src="docs/assets/shot-03.svg" alt="A flor aberta com a mensagem e o bilhete surpresa abaixo" width="100%" /><br />
+    <td align="center" width="33%"><img src="docs/assets/shot-03.svg" alt="A flor aberta para Ana, com o bilhete surpresa abaixo" width="100%" /><br />
       <sub><b>A flor nasceu</b>: e o bilhete chega depois.</sub></td>
   </tr>
 </table>
@@ -64,9 +64,9 @@ Escolha uma flor, escreva para quem é e envie um link curto. Quem abre vê a fl
 <div align="center">
 
 <img src="docs/assets/f-01.svg" alt="Sete flores desenhadas em código: Rosa nacional e colombiana (vermelha ou azul), girassol, hortênsia e lírio, em SVG feito do zero. O caule sobe, as folhas abrem e as pétalas se abrem uma a uma." width="49%" />
-<img src="docs/assets/f-02.svg" alt="Para quem, frase e bilhete surpresa: Um nome, uma frase de até 120 caracteres que aparece com a flor e um bilhete de até 280 que só surge depois que ela termina de abrir." width="49%" />
+<img src="docs/assets/f-02.svg" alt="Para quem e bilhete surpresa: Um nome e um bilhete de até 280 caracteres, que só surge depois que a flor termina de abrir." width="49%" />
 <br />
-<img src="docs/assets/f-03.svg" alt="Link curto e sem spoiler: O link tem só um código de 10 letras e a chave, cerca de 60 caracteres no total. Nome, frase e bilhete não aparecem nele." width="49%" />
+<img src="docs/assets/f-03.svg" alt="Link curto e sem spoiler: O link tem só um código de 10 letras e a chave, cerca de 60 caracteres no total. Nome e bilhete não aparecem nele." width="49%" />
 <img src="docs/assets/f-04.svg" alt="Cifrado no aparelho: A flor é cifrada no navegador com AES-GCM. O banco guarda só o texto cifrado; a chave vai depois do #, que nunca chega ao servidor." width="49%" />
 <br />
 <img src="docs/assets/f-05.svg" alt="Convite antes da flor: Quem recebe vê “Ana, chegou uma flor pra você” e um botão para abrir. A flor nasce ao tocar, e dá para ver nascer de novo." width="49%" />
@@ -190,14 +190,14 @@ Os prints da landing e deste README saem de `SCREENSHOTS=1 pnpm test:e2e e2e/scr
 
 ### 🔐 Como o link fica curto e sem spoiler
 
-1. O navegador de quem envia monta o presente (flor, nome, frase e bilhete) e cifra com uma chave AES-GCM nova, gerada ali mesmo.
+1. O navegador de quem envia monta o presente (flor, nome e bilhete) e cifra com uma chave AES-GCM nova, gerada ali mesmo.
 2. Só o texto cifrado e o IV vão para o servidor, que guarda os dois no Postgres com um código aleatório de 10 letras, válido por 90 dias.
 3. O link é `/app/f/<código>#<chave>`. O que vem depois do `#` nunca sai do navegador: não chega ao servidor, ao banco nem aos logs.
 4. Quem recebe abre o link, o navegador busca o texto cifrado pelo código e decifra com a chave do `#`.
 
 | Peça | Onde fica |
 |---|---|
-| Nome, frase e bilhete | Só dentro do texto cifrado |
+| Nome e bilhete | Só dentro do texto cifrado |
 | Texto cifrado e IV | Banco (Neon, São Paulo), por 90 dias |
 | Chave | Só no link, depois do `#` |
 | IP de quem cria | Nunca: só um HMAC, para limitar 30 flores por hora |

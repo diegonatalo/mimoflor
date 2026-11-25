@@ -38,12 +38,12 @@
       "desc": "Rosa nacional e colombiana (vermelha ou azul), girassol, hortênsia e lírio, em SVG feito do zero. O caule sobe, as folhas abrem e as pétalas se abrem uma a uma."
     },
     {
-      "title": "Para quem, frase e bilhete surpresa",
-      "desc": "Um nome, uma frase de até 120 caracteres que aparece com a flor e um bilhete de até 280 que só surge depois que ela termina de abrir."
+      "title": "Para quem e bilhete surpresa",
+      "desc": "Um nome e um bilhete de até 280 caracteres, que só surge depois que a flor termina de abrir."
     },
     {
       "title": "Link curto e sem spoiler",
-      "desc": "O link tem só um código de 10 letras e a chave, cerca de 60 caracteres no total. Nome, frase e bilhete não aparecem nele."
+      "desc": "O link tem só um código de 10 letras e a chave, cerca de 60 caracteres no total. Nome e bilhete não aparecem nele."
     },
     {
       "title": "Cifrado no aparelho",
@@ -81,7 +81,7 @@
         "file": "docs/screenshots/criar.png",
         "title": "Criar",
         "alt": "Tela de criação com uma rosa colombiana vermelha e o bilhete surpresa ligado",
-        "caption": "<b>Criar</b>: flor, frase e bilhete surpresa."
+        "caption": "<b>Criar</b>: flor, para quem e bilhete surpresa."
       },
       {
         "file": "docs/screenshots/recebido.png",
@@ -92,7 +92,7 @@
       {
         "file": "docs/screenshots/aberto.png",
         "title": "A flor nasceu",
-        "alt": "A flor aberta com a mensagem e o bilhete surpresa abaixo",
+        "alt": "A flor aberta para Ana, com o bilhete surpresa abaixo",
         "caption": "<b>A flor nasceu</b>: e o bilhete chega depois."
       }
     ]

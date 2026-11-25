@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { sealGift } from "@/lib/gift-crypto";
 import { STORE_LIMITS, parseSealed } from "@/lib/sealed";
 
-const gift = { flower: { kind: "lily", color: "red" }, to: "Ana", message: "Oi", note: "" } as const;
+const gift = { flower: { kind: "lily", color: "red" }, to: "Ana", note: "Oi" } as const;
 
 describe("parseSealed", () => {
   it("aceita um presente cifrado de verdade", async () => {
@@ -12,7 +12,7 @@ describe("parseSealed", () => {
   });
 
   it("o maior presente possível cabe no limite", async () => {
-    const big = { ...gift, to: "😀".repeat(40), message: "😀".repeat(120), note: "😀".repeat(280) };
+    const big = { ...gift, to: "😀".repeat(40), note: "😀".repeat(280) };
     const { ciphertext } = await sealGift(big);
     expect(ciphertext.length).toBeLessThanOrEqual(STORE_LIMITS.ciphertext);
   });

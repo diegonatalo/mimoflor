@@ -83,7 +83,7 @@ const GiftReveal = ({ gift }: { gift: Gift }) => {
   const [bloom, setBloom] = useState(0);
   const [noteShown, setNoteShown] = useState(false);
   const reducedMotion = useReducedMotion();
-  const message = useRef<HTMLHeadingElement>(null);
+  const heading = useRef<HTMLHeadingElement>(null);
 
   // o bilhete espera a flor terminar de abrir (na hora, para quem pediu menos movimento)
   useEffect(() => {
@@ -93,7 +93,7 @@ const GiftReveal = ({ gift }: { gift: Gift }) => {
   }, [open, bloom, gift, reducedMotion]);
 
   useEffect(() => {
-    if (open) message.current?.focus();
+    if (open) heading.current?.focus();
   }, [open]);
 
   const replay = () => {
@@ -145,13 +145,12 @@ const GiftReveal = ({ gift }: { gift: Gift }) => {
           <div className="halo w-[340px] lg:w-[460px]" aria-hidden="true" />
           <Flower key={bloom} flower={gift.flower} className={cn("relative", gift.note ? "w-[208px]" : "w-[272px] lg:w-[300px]")} />
         </div>
-        {gift.to && <p className={cn(EYEBROW, "mt-0.5")}>Para {gift.to}</p>}
         <h1
-          ref={message}
+          ref={heading}
           tabIndex={-1}
           className="mt-1.5 max-w-[330px] font-serif text-[30px] font-normal italic leading-tight tracking-[-0.01em] focus:outline-none"
         >
-          {gift.message}
+          {gift.to ? `Para ${gift.to}` : "Pra você"}
         </h1>
         <section aria-live="polite" aria-label="Bilhete surpresa" className="mt-4 w-full">
           {noteShown && (

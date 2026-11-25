@@ -3,7 +3,7 @@ import { IV_LENGTH, type Sealed } from "@/lib/gift-crypto";
 
 /** Limites do que o servidor aceita guardar. */
 export const STORE_LIMITS = {
-  /** O maior presente (nome, frase e bilhete cheios, até com emoji) cifrado cabe com folga. */
+  /** O maior presente (nome e bilhete cheios, até com emoji) cifrado cabe com folga. */
   ciphertext: 4096,
   /** Por quantos dias o link funciona. */
   days: 90,

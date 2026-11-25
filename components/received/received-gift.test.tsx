@@ -8,7 +8,6 @@ import { sealGift } from "@/lib/gift-crypto";
 const GIFT: Gift = {
   flower: { kind: "lily", color: "red" },
   to: "Ana",
-  message: "Uma flor para alegrar o seu dia",
   note: "Lembrei de você hoje cedo.",
 };
 
@@ -39,7 +38,7 @@ describe("ReceivedGift", () => {
     expect(screen.getByText("Ana,")).toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Abrir a flor" }));
 
-    expect(screen.getByRole("heading", { name: GIFT.message })).toHaveFocus();
+    expect(screen.getByRole("heading", { name: "Para Ana" })).toHaveFocus();
     expect(screen.getByRole("img", { name: "Lírio branco" })).toBeInTheDocument();
     // o bilhete espera a flor terminar de abrir
     expect(screen.queryByText(GIFT.note)).not.toBeInTheDocument();
@@ -53,9 +52,12 @@ describe("ReceivedGift", () => {
     expect(await screen.findByText(GIFT.note)).toBeInTheDocument();
   });
 
-  it("sem nome, o convite começa com maiúscula", async () => {
+  it("sem nome, o convite começa com maiúscula e a flor é \"pra você\"", async () => {
+    const user = userEvent.setup();
     await openWith({ ...GIFT, to: "" });
     expect(await screen.findByRole("heading", { name: "Chegou uma flor pra você" })).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Abrir a flor" }));
+    expect(screen.getByRole("heading", { name: "Pra você" })).toBeInTheDocument();
   });
 
   it("avisa quando falta a chave no link", async () => {
