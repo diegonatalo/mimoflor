@@ -1,70 +1,59 @@
 import type { Metadata, Viewport } from "next";
-import { Allura, Cormorant_Garamond } from "next/font/google";
+import { Figtree, Fraunces } from "next/font/google";
 import "./globals.css";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import { THEME_COLORS, THEME_KEY } from "@/lib/storage-keys";
 import { themeScript } from "@/lib/theme";
 
-const allura = Allura({ subsets: ["latin"], weight: "400", variable: "--nf-allura", display: "swap" });
-const cormorant = Cormorant_Garamond({
+// Fraunces: títulos e mensagens, a voz da flor. Figtree: botões, campos e apoio.
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500"],
   style: ["normal", "italic"],
-  variable: "--nf-cormorant",
+  axes: ["opsz"],
+  variable: "--font-fraunces",
   display: "swap",
 });
+const figtree = Figtree({ subsets: ["latin"], variable: "--font-figtree", display: "swap" });
 
-const TITLE = "Mimoflor · Uma flor para você";
-const IMAGE = "/og-image.jpg";
+const TITLE = "Mimoflor · Mande uma flor que floresce na tela de alguém";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: TITLE,
+  title: { default: TITLE, template: "%s · Mimoflor" },
   description: SITE_DESCRIPTION,
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: "/apple-touch-icon.png",
-  },
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
     locale: "pt_BR",
     title: TITLE,
     description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: IMAGE,
-        type: "image/jpeg",
-        width: 1200,
-        height: 630,
-        alt: "Uma hortênsia azul desabrochando sobre a frase “Uma flor para alegrar o seu dia”",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: SITE_DESCRIPTION,
-    images: [IMAGE],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: THEME_COLORS.dark,
+  themeColor: THEME_COLORS.light,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${allura.variable} ${cormorant.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${fraunces.variable} ${figtree.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript(THEME_KEY, THEME_COLORS) }} />
       </head>
-      <body>{children}</body>
+      <body className="min-h-dvh">
+        <a
+          href="#conteudo"
+          className="sr-only rounded-full bg-accent px-5 py-3 font-semibold text-accent-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50"
+        >
+          Pular para o conteúdo
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

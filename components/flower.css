@@ -1,253 +1,75 @@
-/* =========================================================
-   FLOWER
-   Linha do tempo (aprox.):
-   0s    chão e terra surgem
-   0.2s  caule cresce
-   0.9s  folhas se desenrolam
-   1.4s  botão aparece e incha
-   --bloom  pétalas se abrem uma a uma
-   depois  a flor balança (camada própria) e brilhos piscam
-   ========================================================= */
-
-.flower-wrap {
-  position: relative;
-}
+/*
+ * Nascimento das flores (components/flower.tsx). Cada peça tem o seu segundo
+ * (--t) e cresce a partir da própria base (--o). O balanço vai no contêiner
+ * inteiro, numa camada própria: animar dentro do SVG obrigaria o navegador a
+ * redesenhar todas as pétalas a cada quadro.
+ */
 
 .flower {
-  display: block;
-  overflow: visible;
-
-  /* O balanço roda no <svg> inteiro, que o navegador transforma na GPU sem
-     repintar as pétalas. Animar elementos *dentro* do SVG (e, pior, com filtro
-     de sombra) obriga a redesenhar tudo a cada frame, e trava em celulares.
-     Não usar `will-change: transform` aqui: congela a resolução e borra. */
-  transform-origin: 50% 94%;
-  animation: plant-sway 6s ease-in-out 5s infinite alternate;
-}
-
-.flower-sparkles {
-  position: absolute;
-  inset: 0;
-  overflow: visible;
-  pointer-events: none;
-}
-
-.flower .petal,
-.flower .leaf,
-.flower .bud,
-.flower .bud-stay,
-.flower-sparkles .sparkle {
-  transform-box: view-box;
-  transform-origin: 0 0;
-}
-
-/* ---------- chão ---------- */
-
-.ground-shadow {
-  animation: fade-in-simple 0.8s ease-out 0.05s both;
-}
-
-.mound,
-.blade {
-  transform-box: fill-box;
   transform-origin: 50% 100%;
 }
 
-.mound {
-  animation: mound-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+.flower-bloom {
+  animation: flower-sway 7s ease-in-out var(--sway-delay, 3s) infinite;
 }
 
-.blade {
-  animation: blade-grow 0.8s cubic-bezier(0.22, 1, 0.36, 1)
-    calc(var(--d) * 1s) both;
-}
-
-/* ---------- caule ---------- */
-
-.stem-main {
-  stroke-dasharray: 1 2;
+.flower-bloom .fl-stem {
+  stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: stem-grow 1.7s cubic-bezier(0.3, 0.7, 0.2, 1)
-    calc(var(--d) * 1s) forwards;
+  animation: fl-draw 0.9s ease-out forwards;
 }
 
-.thorn {
-  animation: fade-in-simple 0.5s ease-out 1.2s both;
+.flower-bloom .fl-grow {
+  transform-box: fill-box;
+  transform-origin: var(--o, 50% 100%);
+  animation: fl-grow 0.7s cubic-bezier(0.2, 0.8, 0.25, 1.12) calc(var(--t, 0) * 1s) both;
 }
 
-/* ---------- folhas ---------- */
-
-.leaf {
-  animation: leaf-grow 1.1s cubic-bezier(0.22, 1, 0.36, 1)
-    calc(var(--d) * 1s) both;
+.flower-bloom .fl-fade {
+  animation: fl-fade 0.6s ease calc(var(--t, 0) * 1s) both;
 }
 
-/* ---------- botão ---------- */
-
-.bud {
-  animation: bud-life var(--dur, 1.9s) ease-in-out calc(var(--d) * 1s) both;
-}
-
-.bud-stay {
-  animation: bud-grow 1.8s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--d) * 1s)
-    both;
-}
-
-/* ---------- pétalas ---------- */
-
-.petal {
-  animation: petal-open var(--dur, 1.3s) cubic-bezier(0.25, 0.8, 0.25, 1)
-    calc(var(--bloom) + var(--d, 0) * 1s) both;
-}
-
-/* ---------- brilhos ---------- */
-
-.sparkle {
-  animation: sparkle 3.4s ease-in-out calc(var(--d) * 1s) infinite both;
-}
-
-/* =========================================================
-   KEYFRAMES
-   ========================================================= */
-
-@keyframes fade-in-simple {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes mound-rise {
-  from {
-    scale: 0.3 0;
-    opacity: 0;
-  }
-  to {
-    scale: 1 1;
-    opacity: 1;
-  }
-}
-
-@keyframes blade-grow {
-  from {
-    scale: 1 0;
-  }
-  to {
-    scale: 1 1;
-  }
-}
-
-@keyframes stem-grow {
+@keyframes fl-draw {
   to {
     stroke-dashoffset: 0;
   }
 }
 
-@keyframes leaf-grow {
-  0% {
-    scale: 0;
-    rotate: -35deg;
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  70% {
-    scale: 1.06;
-    rotate: 3deg;
-  }
-  100% {
-    scale: 1;
-    rotate: 0deg;
-    opacity: 1;
-  }
-}
-
-@keyframes bud-life {
-  0% {
-    scale: 0;
-    opacity: 0;
-  }
-  18% {
-    opacity: 1;
-  }
-  55% {
-    scale: 1;
-  }
-  85% {
-    scale: 1.18;
-    opacity: 1;
-  }
-  100% {
-    scale: 1.3;
-    opacity: 0;
-  }
-}
-
-@keyframes bud-grow {
+@keyframes fl-grow {
   from {
-    scale: 0;
+    transform: scale(0);
     opacity: 0;
   }
-  30% {
-    opacity: 1;
-  }
-  to {
-    scale: 1;
+  40% {
     opacity: 1;
   }
 }
 
-@keyframes petal-open {
-  0% {
-    opacity: 0;
-    scale: var(--s0, 0);
-    rotate: var(--twist, 0deg);
-  }
-  14% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    scale: 1;
-    rotate: 0deg;
-  }
-}
-
-@keyframes plant-sway {
+@keyframes fl-fade {
   from {
-    rotate: -0.7deg;
-  }
-  to {
-    rotate: 0.9deg;
+    opacity: 0;
   }
 }
 
-@keyframes sparkle {
+@keyframes flower-sway {
   0%,
   100% {
-    scale: 0;
-    rotate: 0deg;
-    opacity: 0;
+    rotate: -1.2deg;
   }
   50% {
-    scale: 1;
-    rotate: 90deg;
-    opacity: 0.9;
+    rotate: 1.2deg;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .flower * {
-    animation-duration: 0.01ms !important;
-    animation-delay: 0s !important;
-    animation-iteration-count: 1 !important;
+  .flower-bloom,
+  .flower-bloom .fl-stem,
+  .flower-bloom .fl-grow,
+  .flower-bloom .fl-fade {
+    animation: none;
   }
 
-  .flower .bud,
-  .flower-sparkles .sparkle {
-    display: none;
+  .flower-bloom .fl-stem {
+    stroke-dashoffset: 0;
   }
 }

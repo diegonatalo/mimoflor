@@ -1,67 +1,59 @@
-import { FLOWERS, type FlowerType, type Selection } from "./flowers/registry";
-import { CommonDefs, Ground, Sparkles } from "./flowers/shared";
-import { vars } from "./flowers/utils";
+import { useId, type ComponentType } from "react";
+import { BLOOM_SECONDS, flowerName, type FlowerChoice, type FlowerKind } from "@/lib/flowers";
+import { cn } from "@/lib/cn";
+import { ColombianRose } from "./flowers/colombian-rose";
+import { Hydrangea } from "./flowers/hydrangea";
+import { Lily } from "./flowers/lily";
+import { Rose } from "./flowers/rose";
+import { vars, type DrawingProps } from "./flowers/shared";
+import { Sunflower } from "./flowers/sunflower";
 import "./flower.css";
 
-type FlowerProps = {
-  type?: FlowerType;
-  /** opções escolhidas para a flor (tipo, cor...) */
-  selection?: Selection;
-  size?: number;
+const DRAWINGS: Record<FlowerKind, ComponentType<DrawingProps>> = {
+  rose: Rose,
+  colombian: ColombianRose,
+  sunflower: Sunflower,
+  hydrangea: Hydrangea,
+  lily: Lily,
 };
 
-const VIEW_BOX = "0 0 320 380";
+type FlowerProps = {
+  flower: FlowerChoice;
+  /** largura em px; sem ela, a largura vem da `className` (a altura é sempre 1,25 × a largura) */
+  size?: number;
+  /** sem animação (miniaturas do seletor, ícones) */
+  still?: boolean;
+  /** só enfeite: o leitor de tela não anuncia */
+  decorative?: boolean;
+  className?: string;
+};
 
-export const Flower = ({ type = "rose", selection = {}, size = 380 }: FlowerProps) => {
-  const flower = FLOWERS[type].view(selection);
-  const height = (size * 380) / 320;
-
+/**
+ * Uma flor desenhada em SVG. Por padrão ela nasce: o caule sobe, as folhas abrem
+ * e as pétalas se abrem uma a uma; depois balança devagar. Para nascer de novo,
+ * troque a `key`. Quem prefere menos movimento vê a flor já aberta.
+ */
+export const Flower = ({ flower, size, still = false, decorative = false, className }: FlowerProps) => {
+  // useId traz caracteres que não valem dentro de url(#...)
+  const uid = `f${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
+  const Drawing = DRAWINGS[flower.kind];
   return (
     <div
-      className="flower-wrap"
+      className={cn("flower", still ? "flower-still" : "flower-bloom", className)}
       style={vars({
-        "--bloom": `${flower.bloom}s`,
-        width: size,
-        height,
-        color: flower.sparkle,
+        ...(size ? { width: `${size}px` } : {}),
+        aspectRatio: "4 / 5",
+        "--sway-delay": `${BLOOM_SECONDS[flower.kind]}s`,
       })}
     >
-      {/* O balanço é aplicado ao <svg> inteiro (camada própria na GPU), em vez
-          de animar elementos dentro dele: dentro do SVG cada frame obrigaria o
-          navegador a redesenhar todas as pétalas. */}
       <svg
-        className="flower"
-        viewBox={VIEW_BOX}
-        width={size}
-        height={height}
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label={flower.label}
+        viewBox="0 0 320 400"
+        width="100%"
+        height="100%"
+        className="block overflow-visible"
+        {...(decorative ? { "aria-hidden": true } : { role: "img", "aria-label": flowerName(flower) })}
       >
-        <defs>
-          <CommonDefs />
-          {flower.defs}
-        </defs>
-
-        <Ground />
-
-        <g className="plant">{flower.plant}</g>
-      </svg>
-
-      {/* Brilhos em camada separada, para piscarem sem repintar a flor */}
-      <svg
-        className="flower-sparkles"
-        viewBox={VIEW_BOX}
-        width={size}
-        height={height}
-        aria-hidden="true"
-      >
-        <Sparkles
-          x={flower.head.x}
-          y={flower.head.y}
-          r={flower.head.r}
-          start={flower.bloom + 2.4}
-        />
+        <Drawing uid={uid} color={flower.color} />
       </svg>
     </div>
   );
