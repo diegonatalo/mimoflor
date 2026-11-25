@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Flower } from "@/components/flower";
 import { BackIcon, ChatIcon, CheckIcon, CopyIcon, ShareIcon } from "@/components/icons";
-import { EYEBROW, GHOST_BUTTON, PRIMARY_BUTTON } from "@/components/ui";
+import { GHOST_BUTTON, PRIMARY_BUTTON } from "@/components/ui";
 import { useCanShare } from "@/hooks/use-browser";
 import { cn } from "@/lib/cn";
 import type { Gift } from "@/lib/gift";
@@ -43,11 +43,8 @@ export const SharePanel = ({ gift, link, onBack, onRestart }: SharePanelProps) =
     <div className="mx-auto flex w-full max-w-md flex-col gap-4 px-5 pb-10 lg:max-w-4xl lg:flex-row lg:items-center lg:gap-12">
       <div className="relative flex flex-col items-center gap-1 overflow-hidden rounded-[32px] border border-line bg-surface px-5 pb-5 pt-[18px] shadow-soft lg:flex-1 lg:py-10">
         <div className="halo w-[320px] lg:w-[520px]" aria-hidden="true" />
-        {gift.to && <p className={cn(EYEBROW, "relative text-xs")}>Para {gift.to}</p>}
         <Flower flower={gift.flower} className="relative w-[156px] lg:w-[260px]" />
-        <p className="relative mt-1 max-w-[280px] text-center font-serif text-2xl italic leading-tight lg:max-w-sm lg:text-3xl">
-          {gift.message}
-        </p>
+        <p className="relative mt-1 font-serif text-2xl italic leading-tight lg:text-3xl">{gift.to ? `Para ${gift.to}` : "Pra você"}</p>
         {gift.note && (
           <span className="relative mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-accent">
             <span aria-hidden="true">✦</span> Com bilhete surpresa

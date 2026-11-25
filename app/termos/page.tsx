@@ -17,7 +17,7 @@ const sections: LegalSection[] = [
     title: `O que é o ${SITE_NAME}`,
     content: (
       <p>
-        Um jeito de mandar uma flor animada, com uma frase e um bilhete, por um link. É um projeto pessoal e gratuito,
+        Um jeito de mandar uma flor animada, com um bilhete surpresa, por um link. É um projeto pessoal e gratuito,
         mantido por Diego Natalo.
       </p>
     ),

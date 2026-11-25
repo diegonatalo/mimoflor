@@ -22,7 +22,7 @@ type FlowerFormProps = {
   error: string | null;
 };
 
-/** Escolha da flor, para quem é, a frase e o bilhete surpresa. */
+/** Escolha da flor, para quem é e o bilhete surpresa. */
 export const FlowerForm = ({ draft, onChange, onSubmit, sending, error }: FlowerFormProps) => {
   const submit = (event: FormEvent) => {
     event.preventDefault();
@@ -133,64 +133,25 @@ export const FlowerForm = ({ draft, onChange, onSubmit, sending, error }: Flower
         />
       </div>
 
-      <div className="flex flex-col gap-1.5">
-        <div className="flex items-baseline justify-between">
-          <label htmlFor="mensagem" className="text-[13px] font-semibold tracking-[0.02em] text-muted">
-            Mensagem
+      <div className="flex flex-col gap-2 rounded-[18px] bg-surface-2 p-3 pl-3.5">
+        <div>
+          <label htmlFor="bilhete" className="text-[15px] font-semibold">
+            Bilhete surpresa
           </label>
-          <span className="text-xs text-muted" aria-hidden="true">
-            {draft.message.length}/{GIFT_LIMITS.message}
-          </span>
+          <p id="bilhete-dica" className="mt-0.5 text-[13px] leading-snug text-muted">
+            Aparece depois que a flor abrir · {draft.note.length}/{GIFT_LIMITS.note}
+          </p>
         </div>
         <textarea
-          id="mensagem"
-          rows={2}
-          value={draft.message}
-          onChange={(event) => onChange({ message: event.target.value })}
-          maxLength={GIFT_LIMITS.message}
-          className={cn(INPUT, "resize-none font-serif text-[17px] italic leading-snug")}
+          id="bilhete"
+          aria-describedby="bilhete-dica"
+          rows={3}
+          value={draft.note}
+          onChange={(event) => onChange({ note: event.target.value })}
+          maxLength={GIFT_LIMITS.note}
+          placeholder="Escreva o que você quer que a pessoa leia depois da flor (opcional)"
+          className={cn(INPUT, "resize-none bg-surface font-serif leading-normal")}
         />
-      </div>
-
-      <div className="flex flex-col gap-2.5 rounded-[18px] bg-surface-2 p-3 pl-3.5">
-        <div className="flex items-center gap-3">
-          <div className="min-w-0 flex-1">
-            <p id="bilhete-titulo" className="text-[15px] font-semibold">
-              Bilhete surpresa
-            </p>
-            <p className="mt-0.5 text-[13px] leading-snug text-muted">
-              Aparece depois que a flor abrir
-              {draft.noteOn && ` · ${draft.note.length}/${GIFT_LIMITS.note}`}
-            </p>
-          </div>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={draft.noteOn}
-            aria-labelledby="bilhete-titulo"
-            onClick={() => onChange({ noteOn: !draft.noteOn })}
-            className={cn(
-              "flex h-8 w-[52px] shrink-0 cursor-pointer items-center rounded-full p-1 transition-colors",
-              draft.noteOn ? "bg-accent" : "bg-line",
-            )}
-          >
-            <span
-              aria-hidden="true"
-              className={cn("size-6 rounded-full bg-white shadow transition-transform", draft.noteOn && "translate-x-5")}
-            />
-          </button>
-        </div>
-        {draft.noteOn && (
-          <textarea
-            aria-label="Texto do bilhete surpresa"
-            rows={3}
-            value={draft.note}
-            onChange={(event) => onChange({ note: event.target.value })}
-            maxLength={GIFT_LIMITS.note}
-            placeholder="Escreva o que você quer que a pessoa leia depois da flor"
-            className={cn(INPUT, "resize-none bg-surface font-serif leading-normal")}
-          />
-        )}
       </div>
 
       {error && (

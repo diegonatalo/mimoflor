@@ -4,7 +4,7 @@ import { createFlower, title } from "./fixtures";
 const NOTE = "Lembrei de você hoje cedo e quis te mandar alguma coisa bonita.";
 
 test("a flor chega inteira em outro navegador e o bilhete aparece depois que ela abre", async ({ page, browser }) => {
-  const link = await createFlower(page, { flower: "Lírio", to: "Ana", message: "Para alegrar a sua terça", note: NOTE });
+  const link = await createFlower(page, { flower: "Lírio", to: "Ana", note: NOTE });
 
   // curto e sem spoiler: só o código e a chave
   const url = new URL(link);
@@ -23,7 +23,7 @@ test("a flor chega inteira em outro navegador e o bilhete aparece depois que ela
   // o convite continua lá depois de recarregar: a flor está no banco
   await other.reload();
   await other.getByRole("button", { name: "Abrir a flor" }).click();
-  await expect(title(other, "Para alegrar a sua terça")).toBeVisible();
+  await expect(title(other, "Para Ana")).toBeVisible();
   await expect(other.getByRole("img", { name: "Lírio branco" })).toBeVisible();
   await expect(other.getByText(NOTE)).toBeHidden();
   await expect(other.getByText(NOTE)).toBeVisible({ timeout: 8_000 });

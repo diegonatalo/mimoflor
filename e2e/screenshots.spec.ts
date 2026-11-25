@@ -14,6 +14,8 @@ const EXAMPLE = { to: "Ana", note: NOTE };
 
 /** Tira o print da tela e grava como WebP, convertendo no próprio navegador. */
 const shoot = async (page: Page, name: string) => {
+  // sem campo focado no print
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
   await page.evaluate(() => window.scrollTo(0, 0));
   const buffer = await page.screenshot();
   mkdirSync("docs/screenshots", { recursive: true });

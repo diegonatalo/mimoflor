@@ -14,16 +14,10 @@ describe("Creator", () => {
     send.mockReset();
   });
 
-  it("o bilhete surpresa só aparece quando está ligado", async () => {
+  it("o bilhete surpresa conta os caracteres", async () => {
     const user = userEvent.setup();
     render(<Creator />);
-    const toggle = screen.getByRole("switch", { name: "Bilhete surpresa" });
-    expect(toggle).toHaveAttribute("aria-checked", "false");
-    expect(screen.queryByRole("textbox", { name: "Texto do bilhete surpresa" })).not.toBeInTheDocument();
-
-    await user.click(toggle);
-    expect(toggle).toHaveAttribute("aria-checked", "true");
-    await user.type(screen.getByRole("textbox", { name: "Texto do bilhete surpresa" }), "Oi");
+    await user.type(screen.getByRole("textbox", { name: "Bilhete surpresa" }), "Oi");
     expect(screen.getByText(/2\/280/)).toBeInTheDocument();
   });
 
@@ -43,8 +37,7 @@ describe("Creator", () => {
     render(<Creator />);
 
     await user.type(screen.getByRole("textbox", { name: "Para" }), "Ana");
-    await user.click(screen.getByRole("switch", { name: "Bilhete surpresa" }));
-    await user.type(screen.getByRole("textbox", { name: "Texto do bilhete surpresa" }), "Lembrei de você.");
+    await user.type(screen.getByRole("textbox", { name: "Bilhete surpresa" }), "Lembrei de você.");
     await user.click(screen.getByRole("button", { name: "Enviar flor" }));
 
     expect(await screen.findByRole("heading", { name: "Agora, a melhor parte." })).toBeInTheDocument();
